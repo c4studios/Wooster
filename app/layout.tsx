@@ -38,6 +38,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  // C4 concept build: concepts are never indexable. next.config.ts sends the
+  // matching X-Robots-Tag header so images and non-HTML routes are covered too.
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
   keywords: [
     "kitesurfing",
     "kitesurf handle",

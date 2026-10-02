@@ -4,27 +4,6 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ProductImage } from "./ProductImage";
 
-const testimonials = [
-  {
-    quote:
-      "The grip and control during big air sessions is unmatched. This handle changed my riding.",
-    name: "Rider Review",
-    role: "Beta Tester",
-  },
-  {
-    quote:
-      "Finally a handle that's engineered properly. The WOO mount integration is genius.",
-    name: "Rider Review",
-    role: "Beta Tester",
-  },
-  {
-    quote:
-      "Months of testing in real conditions. These guys actually ride and it shows in the product.",
-    name: "Rider Review",
-    role: "Beta Tester",
-  },
-];
-
 export function SocialProof() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
@@ -134,41 +113,8 @@ export function SocialProof() {
           </p>
         </motion.div>
 
-        {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 + index * 0.15 }}
-              className="relative p-6 bg-wooster-charcoal/20 border border-white/5 rounded-xl overflow-hidden hover:border-wooster-orange/20 transition-colors group"
-            >
-              {/* Accent bar */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-wooster-orange/0 via-wooster-orange/40 to-wooster-orange/0 opacity-0 group-hover:opacity-100 transition-opacity" />
-              {/* Quote mark */}
-              <span className="font-[family-name:var(--font-display)] text-4xl text-wooster-orange/30 leading-none">
-                &ldquo;
-              </span>
-              <p className="text-wooster-silver text-sm leading-relaxed mt-2">
-                {testimonial.quote}
-              </p>
-              <div className="mt-4 pt-4 border-t border-white/5 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-wooster-orange/10 border border-wooster-orange/30 flex items-center justify-center font-[family-name:var(--font-mono)] text-[10px] text-wooster-orange">
-                  WC
-                </span>
-                <div>
-                  <p className="text-sm text-white font-medium">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-xs text-wooster-steel mt-0.5">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Rider testimonials removed 2 Oct 2026 (site_issues 105): the three
+            quotes had no source. Add real, attributed quotes only. */}
       </div>
     </section>
   );
