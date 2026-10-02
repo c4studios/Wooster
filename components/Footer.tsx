@@ -1,177 +1,79 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
+import { InstagramIcon, MailIcon } from "./icons";
 
+/**
+ * The bottom flap. The old newsletter form showed "You're on the list"
+ * without sending anything, and the company links pointed at "#"; both are
+ * gone until there is something real behind them.
+ */
 export function Footer() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Newsletter signup logic TBD
-    setEmail("");
-    setSubmitted(true);
-  };
-
   return (
-    <footer className="relative border-t border-white/5 bg-wooster-charcoal/30">
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <Link href="/" className="inline-block">
-              <span className="font-[family-name:var(--font-display)] text-2xl tracking-[0.2em] text-white">
-                WOOSTER
-              </span>
-              <span className="font-[family-name:var(--font-display)] text-2xl tracking-[0.2em] text-wooster-steel ml-2">
-                CORE
-              </span>
-            </Link>
-            <p className="text-sm text-wooster-steel mt-4 leading-relaxed">
-              Precision 3D-printed performance kitesurfing handles. Engineered
-              by Arty Design.
-            </p>
-            {/* Social */}
-            <div className="flex gap-4 mt-6">
+    <footer className="border-t border-lid-line bg-lid-deep">
+      <div className="mx-auto grid max-w-[90rem] grid-cols-1 gap-10 px-4 py-14 sm:px-6 md:grid-cols-12 lg:px-12">
+        <div className="md:col-span-5">
+          <Link
+            href="/"
+            className="type-wide text-[1.4rem] font-extrabold uppercase leading-none text-silver-hi"
+          >
+            Wooster <span className="text-[0.7em] text-silver">Core</span>
+          </Link>
+          <p className="mt-3 max-w-[22rem] text-[0.9375rem] leading-relaxed text-silver">
+            A 3D-printed kitesurfing handle for big air. Engineered by Arty Design.
+          </p>
+        </div>
+
+        <nav aria-label="Footer" className="md:col-span-3">
+          <h2 className="type-label text-[0.6875rem] text-silver-lo">On this page</h2>
+          <ul className="mt-3 space-y-1">
+            {[
+              ["#print", "The print"],
+              ["#kit", "In the box"],
+              ["#specs", "Specs"],
+              ["#riders", "Built by riders"],
+            ].map(([href, label]) => (
+              <li key={href}>
+                <a href={href} className="inline-flex min-h-9 items-center text-[0.9375rem] text-silver hover:text-silver-hi hover:underline">
+                  {label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <Link href="/cart" className="inline-flex min-h-9 items-center text-[0.9375rem] text-silver hover:text-silver-hi hover:underline">
+                Cart
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="md:col-span-4">
+          <h2 className="type-label text-[0.6875rem] text-silver-lo">Arty Design</h2>
+          <ul className="mt-3 space-y-1">
+            <li>
               <a
                 href="https://instagram.com/arty_dsgn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-wooster-steel hover:text-wooster-orange transition-colors"
-                aria-label="Instagram"
+                className="inline-flex min-h-9 items-center gap-2.5 text-[0.9375rem] text-silver hover:text-silver-hi hover:underline"
               >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
-                </svg>
+                <InstagramIcon size={18} />
+                @arty_dsgn on Instagram
               </a>
-            </div>
-          </div>
-
-          {/* Products */}
-          <div>
-            <h4 className="font-[family-name:var(--font-display)] text-sm tracking-[0.2em] text-white mb-4">
-              PRODUCTS
-            </h4>
-            <ul className="space-y-2">
-              {[
-                "Wooster Core",
-                "Woo Mount",
-                "Standalone Mount",
-                "Ultimate Bundle",
-              ].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#products"
-                    className="text-sm text-wooster-steel hover:text-wooster-orange transition-colors"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-[family-name:var(--font-display)] text-sm tracking-[0.2em] text-white mb-4">
-              COMPANY
-            </h4>
-            <ul className="space-y-2">
-              {[
-                { name: "Arty Design", href: "#" },
-                { name: "Jewellery Store", href: "#", badge: "Coming Soon" },
-                { name: "Services", href: "#", badge: "Coming Soon" },
-                { name: "Contact", href: "#" },
-              ].map((item) => (
-                <li key={item.name} className="flex items-center gap-2">
-                  <a
-                    href={item.href}
-                    className="text-sm text-wooster-steel hover:text-wooster-orange transition-colors"
-                  >
-                    {item.name}
-                  </a>
-                  {item.badge && (
-                    <span className="text-[10px] px-1.5 py-0.5 bg-wooster-dark border border-white/10 rounded text-wooster-steel/60">
-                      {item.badge}
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-[family-name:var(--font-display)] text-sm tracking-[0.2em] text-white mb-4">
-              STAY IN THE LOOP
-            </h4>
-            <p className="text-sm text-wooster-steel mb-4">
-              Get updates on new products, drops, and rider content.
-            </p>
-            {submitted ? (
-              <div className="flex items-center gap-2 px-4 py-2.5 bg-wooster-orange/10 border border-wooster-orange/30 rounded">
-                <svg
-                  className="w-4 h-4 text-wooster-orange flex-shrink-0"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <p className="text-sm text-wooster-silver">
-                  You&apos;re on the list. Stay tuned.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  aria-label="Email address"
-                  className="flex-1 min-w-0 px-4 py-2.5 bg-wooster-dark border border-white/10 rounded text-sm text-white placeholder:text-wooster-steel/40 focus:outline-none focus:border-wooster-orange/50 transition-colors"
-                  required
-                  suppressHydrationWarning
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2.5 bg-wooster-orange text-white text-sm font-[family-name:var(--font-display)] tracking-wider rounded hover:bg-wooster-orange-glow transition-colors"
-                >
-                  JOIN
-                </button>
-              </form>
-            )}
-          </div>
+            </li>
+            <li>
+              <a
+                href="mailto:hello@artydesign.com.au"
+                className="inline-flex min-h-9 items-center gap-2.5 text-[0.9375rem] text-silver hover:text-silver-hi hover:underline"
+              >
+                <MailIcon size={18} />
+                hello@artydesign.com.au
+              </a>
+            </li>
+          </ul>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-wooster-steel/50">
-            &copy; {new Date().getFullYear()} Arty Design. All rights reserved.
-          </p>
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] text-wooster-steel/30 tracking-wider uppercase">
-              Engineered by
-            </span>
-            <span className="font-[family-name:var(--font-display)] text-xs tracking-[0.15em] text-wooster-steel/50">
-              ARTY DESIGN
-            </span>
-          </div>
-        </div>
+        <p className="text-[0.8125rem] text-silver-lo md:col-span-12">
+          © {new Date().getFullYear()} Arty Design. Prices in AUD.
+        </p>
       </div>
     </footer>
   );

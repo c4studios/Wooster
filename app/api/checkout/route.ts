@@ -34,10 +34,11 @@ export async function POST(request: NextRequest) {
     const stripe = getStripeClient();
 
     if (!stripe) {
+      // Visitors see a plain message; the setup hint stays in the server log.
+      console.warn("Checkout is not configured: STRIPE_SECRET_KEY is not set.");
       return NextResponse.json(
         {
-          error:
-            "Checkout is not configured. Add STRIPE_SECRET_KEY in Vercel before enabling purchases.",
+          error: "Checkout isn’t switched on yet. Nothing has been charged.",
         },
         { status: 503 }
       );

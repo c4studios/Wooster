@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Archivo, Martian_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { CartDrawer } from "@/components/CartDrawer";
@@ -7,27 +7,24 @@ import { C4Credit } from "@/components/C4Credit";
 import { CartProvider } from "@/lib/cart";
 import { getSiteUrlObject } from "@/lib/site-url";
 
-const bebasNeue = Bebas_Neue({
-  weight: "400",
+// Archivo's width axis carries the box's wide lettering and the body text in
+// one family. Martian Mono is kept for part codes, quantities and readouts.
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-display",
+  axes: ["wdth"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const martianMono = Martian_Mono({
   subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+  axes: ["wdth"],
+  variable: "--font-martian",
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A0A",
+  themeColor: "#222531",
 };
 
 export const metadata: Metadata = {
@@ -68,6 +65,17 @@ export const metadata: Metadata = {
   },
 };
 
+// Direction contract (impeccable). Kept in the emitted HTML so the finish
+// review can audit the render against it.
+const DIRECTION_CONTRACT = `<!--
+THESIS: The site is the Wooster Core box, opened. The lid's line drawing is the live WebGL print, and the kit sits in its foam. It refuses the dark action-sports store with a neon accent.
+OWN-WORLD: Blue-charcoal corrugated lid with silver ink, kraft tray fields, grey pick foam, Signal Orange only where the product is orange. Archivo printed wide like the box, Martian Mono for codes and readouts.
+STORY: A rider watches the handle print, opens the box to see every part and price, reads the spec panel and the rider story, then adds the handle, the mount or the bundle to the cart.
+FIRST VIEWPORT: The whole lid. WOOSTER CORE across the top in silver over a rule and PERFORMANCE BIG AIR, the live print in the middle band, the handle price and Add to cart bottom-left, ENGINEERED BY ARTY DESIGN bottom-right.
+FORM: The Box and its Foam, #1 of 7 (Impeccable's pick, chosen by Caleb 2 Oct 2026), seed 02f7b57c.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,14 +83,21 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-AU"
       data-scroll-behavior="smooth"
-      className={`${bebasNeue.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
+      className={`${archivo.variable} ${martianMono.variable}`}
     >
-      <body className="min-h-screen bg-wooster-black text-wooster-silver antialiased">
+      <body className="min-h-screen antialiased">
+        <div hidden dangerouslySetInnerHTML={{ __html: DIRECTION_CONTRACT }} />
+        <a
+          href="#main"
+          className="type-label fixed left-3 top-3 z-[100] -translate-y-24 bg-silver-hi px-4 py-3 text-xs text-lid focus:translate-y-0"
+        >
+          Skip to content
+        </a>
         <CartProvider>
           <Navigation />
-          <main>{children}</main>
+          <main id="main">{children}</main>
           <C4Credit />
           <CartDrawer />
         </CartProvider>

@@ -1,30 +1,32 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/lib/cart";
+import { BoxIcon, CloseIcon, MenuIcon } from "./icons";
 
 const SECTIONS = [
-  { id: "products", label: "Products" },
-  { id: "system", label: "The System" },
+  { id: "print", label: "The print" },
+  { id: "kit", label: "In the box" },
   { id: "specs", label: "Specs" },
-  { id: "about", label: "About" },
+  { id: "riders", label: "Riders" },
 ] as const;
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const { totalItems, toggleCart } = useCart();
+  const { totalItems, openCart } = useCart();
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Track which section is in view to highlight its nav link
+  // Mark the section in view.
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -32,174 +34,116 @@ export function Navigation() {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         }
       },
-      { rootMargin: "-40% 0px -55% 0px" }
+      { rootMargin: "-45% 0px -50% 0px" }
     );
-    const watched = SECTIONS.map(({ id }) => document.getElementById(id)).filter(
-      (el): el is HTMLElement => el !== null
-    );
-    watched.forEach((el) => observer.observe(el));
+    SECTIONS.map(({ id }) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null)
+      .forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
+  // Escape closes the menu and returns focus to its button.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  const solid = scrolled || menuOpen;
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-wooster-black/90 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/30"
-          : "bg-transparent"
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300 ${
+        solid ? "border-b border-lid-line bg-lid/95 backdrop-blur-[6px]" : "border-b border-transparent"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <span className="w-2 h-6 bg-wooster-orange -skew-x-12 group-hover:bg-wooster-orange-glow transition-colors" />
-          <span className="font-[family-name:var(--font-display)] text-2xl tracking-[0.2em] text-white group-hover:text-wooster-orange transition-colors">
-            WOOSTER
-          </span>
-          <span className="font-[family-name:var(--font-display)] text-2xl tracking-[0.2em] text-wooster-steel -ml-1">
-            CORE
-          </span>
+      <nav aria-label="Main" className="mx-auto flex h-[var(--nav-h)] max-w-[90rem] items-center justify-between px-4 sm:px-6 lg:px-12">
+        <Link
+          href="/"
+          className="type-wide text-[0.95rem] font-extrabold uppercase tracking-[0.02em] text-silver-hi"
+        >
+          Wooster <span className="text-[0.72em] font-bold text-silver">Core</span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-1 md:flex">
           {SECTIONS.map(({ id, label }) => (
             <a
               key={id}
               href={`#${id}`}
-              className={`relative text-sm transition-colors tracking-wide uppercase group ${
-                activeSection === id
-                  ? "text-white"
-                  : "text-wooster-steel hover:text-white"
+              aria-current={activeSection === id ? "location" : undefined}
+              className={`relative px-3 py-2 text-[0.875rem] transition-colors ${
+                activeSection === id ? "text-silver-hi" : "text-silver-lo hover:text-silver-hi"
               }`}
             >
               {label}
               <span
-                className={`absolute -bottom-1.5 left-0 h-px bg-wooster-orange transition-all duration-300 ${
-                  activeSection === id ? "w-full" : "w-0 group-hover:w-full"
+                aria-hidden="true"
+                className={`absolute inset-x-3 -bottom-0.5 h-px origin-left bg-signal transition-transform duration-300 ${
+                  activeSection === id ? "scale-x-100" : "scale-x-0"
                 }`}
               />
             </a>
           ))}
+          <CartButton count={totalItems} onClick={openCart} />
+        </div>
 
-          {/* Cart Button */}
+        <div className="flex items-center gap-1 md:hidden">
+          <CartButton count={totalItems} onClick={openCart} />
           <button
-            onClick={toggleCart}
-            className="relative p-2 text-wooster-steel hover:text-wooster-orange transition-colors"
-            aria-label="Open cart"
+            ref={menuButton}
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="inline-flex h-11 w-11 items-center justify-center text-silver"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <path d="M16 10a4 4 0 01-8 0" />
-            </svg>
-            {totalItems > 0 && (
-              <motion.span
-                key={totalItems}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                className="absolute -top-1 -right-1 w-5 h-5 bg-wooster-orange text-white text-xs font-bold rounded-full flex items-center justify-center"
+            {menuOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
+      </nav>
+
+      <div
+        id="mobile-menu"
+        hidden={!menuOpen}
+        className="border-t border-lid-line bg-lid-deep md:hidden"
+      >
+        <ul className="px-4 py-3 sm:px-6">
+          {SECTIONS.map(({ id, label }) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                onClick={() => setMenuOpen(false)}
+                className="type-wide flex min-h-12 items-center border-b border-lid-line text-[1.05rem] font-bold uppercase text-silver last:border-b-0"
               >
-                {totalItems}
-              </motion.span>
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Menu Button + Cart */}
-        <div className="flex md:hidden items-center gap-4">
-          <button
-            onClick={toggleCart}
-            className="relative p-2 text-wooster-steel"
-            aria-label="Open cart"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <path d="M16 10a4 4 0 01-8 0" />
-            </svg>
-            {totalItems > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-wooster-orange text-white text-xs font-bold rounded-full flex items-center justify-center">
-                {totalItems}
-              </span>
-            )}
-          </button>
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 text-wooster-steel"
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-          >
-            <div className="w-6 flex flex-col gap-1.5">
-              <span
-                className={`block h-0.5 bg-current transition-all ${
-                  mobileOpen ? "rotate-45 translate-y-2" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 bg-current transition-all ${
-                  mobileOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 bg-current transition-all ${
-                  mobileOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              />
-            </div>
-          </button>
-        </div>
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
+    </header>
+  );
+}
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-wooster-black/95 backdrop-blur-md border-t border-white/5 overflow-hidden"
-          >
-            <div className="px-6 py-6 flex flex-col gap-4">
-              {SECTIONS.map(({ id, label }, index) => (
-                <motion.a
-                  key={id}
-                  href={`#${id}`}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 + index * 0.06 }}
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-3 text-lg text-wooster-steel hover:text-white transition-colors tracking-wide uppercase font-[family-name:var(--font-display)]"
-                >
-                  <span className="font-[family-name:var(--font-mono)] text-[10px] text-wooster-orange/60">
-                    0{index + 1}
-                  </span>
-                  {label}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+function CartButton({ count, onClick }: { count: number; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="ml-1 inline-flex h-11 items-center gap-2 px-2.5 text-silver transition-colors hover:text-silver-hi"
+      aria-label={`Cart, ${count} ${count === 1 ? "item" : "items"}`}
+    >
+      <BoxIcon />
+      <span className="type-mono text-[0.75rem]" aria-hidden="true">
+        {count}
+      </span>
+    </button>
   );
 }

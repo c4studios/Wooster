@@ -9,10 +9,7 @@ interface CheckoutButtonProps {
   label: string;
 }
 
-export function CheckoutButton({
-  className,
-  label,
-}: CheckoutButtonProps) {
+export function CheckoutButton({ className, label }: CheckoutButtonProps) {
   const { items } = useCart();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +29,7 @@ export function CheckoutButton({
       setError(
         checkoutError instanceof Error
           ? checkoutError.message
-          : "Checkout is unavailable right now."
+          : "Checkout isn't available right now. Please try again later."
       );
       setIsLoading(false);
     }
@@ -44,13 +41,14 @@ export function CheckoutButton({
         type="button"
         onClick={handleCheckout}
         disabled={items.length === 0 || isLoading}
-        className={`${className} disabled:cursor-not-allowed disabled:opacity-60`}
+        aria-busy={isLoading}
+        className={className}
       >
-        {isLoading ? "REDIRECTING..." : label}
+        {isLoading ? "Opening checkout…" : label}
       </button>
-      {error ? (
-        <p className="mt-3 text-center text-xs text-red-400">{error}</p>
-      ) : null}
+      <p role="alert" className="mt-3 text-[0.875rem] leading-snug text-[#a3290f] empty:hidden">
+        {error}
+      </p>
     </>
   );
 }

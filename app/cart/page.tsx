@@ -5,125 +5,95 @@ import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/products";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { ProductImage } from "@/components/ProductImage";
+import { MinusIcon, PlusIcon } from "@/components/icons";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice } = useCart();
 
   return (
-    <div className="min-h-screen bg-wooster-black pt-24 pb-16">
-      <div className="mx-auto max-w-3xl px-6">
-        <h1 className="font-[family-name:var(--font-display)] text-4xl tracking-[0.15em] text-white mb-8">
-          YOUR CART
+    <div className="material-lid min-h-[100svh] px-4 pb-16 pt-[calc(var(--nav-h)+2rem)] sm:px-6">
+      <div className="surface-slip mx-auto max-w-3xl bg-slip px-5 py-8 text-lid shadow-[0_30px_60px_-30px_rgb(0_0_0/0.7)] sm:px-10 sm:py-10">
+        <p className="type-label text-[0.6875rem] text-lid/70">Packing slip</p>
+        <h1 className="type-wide mt-1 text-[clamp(1.8rem,5vw,2.6rem)] font-extrabold uppercase leading-none">
+          Your cart
         </h1>
 
         {items.length === 0 ? (
-          <div className="text-center py-20">
-            <p className="text-wooster-steel text-lg mb-6">
-              Your cart is empty
+          <div className="mt-10 border-t-2 border-lid pt-8">
+            <p className="type-wide text-[1.15rem] font-extrabold uppercase">Nothing in the box yet</p>
+            <p className="mt-2 max-w-[26rem] text-[0.9375rem] leading-relaxed text-lid/80">
+              The handle kit, the Woo Mount and the bundle are all on the home page.
             </p>
-            <Link
-              href="/#products"
-              className="inline-flex items-center justify-center px-8 py-3 bg-wooster-orange text-white font-[family-name:var(--font-display)] tracking-[0.15em] rounded hover:bg-wooster-orange-glow transition-colors"
-            >
-              BROWSE PRODUCTS
+            <Link href="/#kit" className="btn btn-signal mt-6">
+              See what&apos;s in the box
             </Link>
           </div>
         ) : (
           <>
-            <div className="space-y-4">
-              {items.map((item) => (
-                <div
-                  key={`${item.product.id}-${item.variant?.id || "default"}`}
-                  className="flex gap-6 p-6 bg-wooster-charcoal border border-white/5 rounded-lg"
-                >
-                  <div className="relative w-24 h-24 bg-wooster-dark rounded overflow-hidden flex-shrink-0">
-                    <ProductImage
-                      src={item.product.image || ""}
-                      alt={item.product.name}
-                      fill
-                      sizes="96px"
-                      className="object-cover"
-                      compactFallback
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-[family-name:var(--font-display)] text-lg tracking-wide text-white">
-                      {item.product.name.toUpperCase()}
-                    </h3>
-                    {item.variant && (
-                      <p className="text-sm text-wooster-steel">
-                        {item.variant.name}
+            <ul className="mt-8 border-t-2 border-lid">
+              {items.map((item) => {
+                const image = item.variant?.image ?? item.product.image ?? "";
+                return (
+                  <li
+                    key={`${item.product.id}-${item.variant?.id ?? "default"}`}
+                    className="grid grid-cols-[4.5rem_1fr] gap-x-4 gap-y-3 border-b border-slip-line py-5 sm:grid-cols-[5.5rem_1fr_auto]"
+                  >
+                    <div className="relative h-[4.5rem] w-[4.5rem] overflow-hidden bg-lid sm:h-[5.5rem] sm:w-[5.5rem]">
+                      <ProductImage src={image} alt="" fill sizes="88px" className="object-cover" compactFallback />
+                    </div>
+                    <div>
+                      <h2 className="type-wide text-[1rem] font-extrabold uppercase">{item.product.name}</h2>
+                      <p className="mt-0.5 text-[0.875rem] text-lid/75">
+                        {item.variant && item.product.variants && item.product.variants.length > 1
+                          ? `${item.variant.name} · `
+                          : ""}
+                        <span className="type-mono text-[0.75rem]">{item.product.sku}</span> ·{" "}
+                        {formatPrice(item.product.price, item.product.currency)} each
                       </p>
-                    )}
-                    <p className="font-[family-name:var(--font-mono)] text-wooster-orange mt-2">
-                      {formatPrice(item.product.price, item.product.currency)}
-                    </p>
-                    <div className="flex items-center gap-4 mt-3">
-                      <div className="flex items-center gap-3">
+                      <div className="mt-3 flex items-center gap-1">
                         <button
-                          onClick={() =>
-                            updateQuantity(
-                              item.product.id,
-                              item.quantity - 1,
-                              item.variant?.id
-                            )
-                          }
-                          className="w-8 h-8 flex items-center justify-center bg-wooster-dark rounded text-wooster-steel hover:text-white"
+                          type="button"
+                          onClick={() => updateQuantity(item.product.id, item.quantity - 1, item.variant?.id)}
+                          className="inline-flex h-10 w-10 items-center justify-center border border-lid/30 hover:border-lid"
+                          aria-label={`One fewer ${item.product.name}`}
                         >
-                          -
+                          <MinusIcon size={16} />
                         </button>
-                        <span className="font-[family-name:var(--font-mono)] text-white w-8 text-center">
+                        <span className="type-mono w-9 text-center text-[0.875rem]" aria-live="polite">
                           {item.quantity}
                         </span>
                         <button
-                          onClick={() =>
-                            updateQuantity(
-                              item.product.id,
-                              item.quantity + 1,
-                              item.variant?.id
-                            )
-                          }
-                          className="w-8 h-8 flex items-center justify-center bg-wooster-dark rounded text-wooster-steel hover:text-white"
+                          type="button"
+                          onClick={() => updateQuantity(item.product.id, item.quantity + 1, item.variant?.id)}
+                          className="inline-flex h-10 w-10 items-center justify-center border border-lid/30 hover:border-lid"
+                          aria-label={`One more ${item.product.name}`}
                         >
-                          +
+                          <PlusIcon size={16} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => removeItem(item.product.id, item.variant?.id)}
+                          className="ml-3 inline-flex min-h-10 items-center text-[0.875rem] text-lid/75 underline underline-offset-4 hover:text-lid"
+                        >
+                          Remove<span className="sr-only"> {item.product.name}</span>
                         </button>
                       </div>
-                      <button
-                        onClick={() =>
-                          removeItem(item.product.id, item.variant?.id)
-                        }
-                        className="text-sm text-wooster-steel hover:text-red-500 transition-colors"
-                      >
-                        Remove
-                      </button>
                     </div>
-                  </div>
-                  <div className="font-[family-name:var(--font-mono)] text-white text-lg">
-                    {formatPrice(
-                      item.product.price * item.quantity,
-                      item.product.currency
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+                    <p className="type-wide col-start-2 text-[1.05rem] font-bold sm:col-start-3 sm:text-right">
+                      {formatPrice(item.product.price * item.quantity, item.product.currency)}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
 
-            <div className="mt-8 p-6 bg-wooster-charcoal border border-white/5 rounded-lg">
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-wooster-steel uppercase tracking-wide">
-                  Total
-                </span>
-                <span className="font-[family-name:var(--font-display)] text-3xl text-white tracking-wider">
-                  {formatPrice(totalPrice, "AUD")}
-                </span>
-              </div>
-              <CheckoutButton
-                label="PROCEED TO CHECKOUT"
-                className="w-full py-4 bg-wooster-orange text-white font-[family-name:var(--font-display)] text-xl tracking-[0.2em] rounded btn-glow hover:bg-wooster-orange-glow transition-colors"
-              />
-              <p className="text-xs text-wooster-steel text-center mt-3">
-                Shipping calculated at checkout
-              </p>
+            <div className="mt-6 flex items-baseline justify-between border-t-2 border-lid pt-5">
+              <span className="type-label text-[0.75rem]">Total</span>
+              <span className="type-wide text-[2rem] font-extrabold">{formatPrice(totalPrice, "AUD")}</span>
+            </div>
+            <p className="mt-1 text-[0.875rem] text-lid/75">Shipping is calculated at checkout.</p>
+            <div className="mt-6 max-w-sm">
+              <CheckoutButton label="Proceed to checkout" className="btn btn-signal w-full" />
             </div>
           </>
         )}

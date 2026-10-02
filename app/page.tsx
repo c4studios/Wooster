@@ -1,9 +1,8 @@
-import { Hero } from "@/components/Hero";
-import { ProductCarousel } from "@/components/ProductCarousel";
-import { ExplodedView } from "@/components/ExplodedView";
-import { SpecsSection } from "@/components/SpecsSection";
-import { ActionCTA } from "@/components/ActionCTA";
-import { SocialProof } from "@/components/SocialProof";
+import { Lid } from "@/components/Lid";
+import { Kit } from "@/components/Kit";
+import { SpecSheet } from "@/components/SpecSheet";
+import { RiderStory } from "@/components/RiderStory";
+import { Dispatch } from "@/components/Dispatch";
 import { Footer } from "@/components/Footer";
 import { products } from "@/lib/products";
 
@@ -51,12 +50,11 @@ export default function Home() {
   return (
     <>
       <ProductStructuredData />
-      <Hero />
-      <ProductCarousel />
-      <ExplodedView />
-      <SpecsSection />
-      <ActionCTA />
-      <SocialProof />
+      <Lid />
+      <Kit />
+      <SpecSheet />
+      <RiderStory />
+      <Dispatch />
       <Footer />
     </>
   );

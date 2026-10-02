@@ -4,6 +4,8 @@ export interface ProductVariant {
   id: string;
   name: string;
   color: string;
+  /** Photo of this colourway, when one exists. */
+  image?: string;
 }
 
 export interface Product {
@@ -49,9 +51,9 @@ export const products: Product[] = [
       "Mounting clips",
     ],
     variants: [
-      { id: "core-black", name: "Stealth Black", color: "#1A1A1A" },
+      { id: "core-black", name: "Stealth Black", color: "#16171B" },
     ],
-    image: "/images/product-core.jpg",
+    image: "/images/product-core.jpg", // crop of exploded-view.jpg
   },
   {
     id: "woo-mount",
@@ -64,10 +66,20 @@ export const products: Product[] = [
     status: "available",
     sku: "WC-200",
     variants: [
-      { id: "mount-black", name: "Stealth Black", color: "#1A1A1A" },
-      { id: "mount-orange", name: "Signal Orange", color: "#FF6B00" },
+      {
+        id: "mount-black",
+        name: "Stealth Black",
+        color: "#16171B",
+        image: "/images/product-mount-black.jpg",
+      },
+      {
+        id: "mount-orange",
+        name: "Signal Orange",
+        color: "#FF6B00",
+        image: "/images/product-mount-orange.jpg",
+      },
     ],
-    image: "/images/product-mount.jpg",
+    image: "/images/product-mount-orange.jpg",
   },
   {
     id: "standalone-woo-mount",
@@ -79,7 +91,7 @@ export const products: Product[] = [
     currency: "AUD",
     status: "available",
     sku: "WC-250",
-    image: "/images/product-standalone.jpg",
+    // No photo of the standalone mount exists yet.
   },
   {
     id: "wooster-lite",
@@ -96,7 +108,7 @@ export const products: Product[] = [
     name: "Wooster Carbon",
     tagline: "Carbon Fibre Performance",
     description:
-      "The ultimate construction. Carbon fibre composite for maximum strength-to-weight ratio.",
+      "Carbon fibre composite for maximum strength-to-weight ratio.",
     price: 0,
     currency: "AUD",
     status: "coming_soon",
@@ -121,7 +133,7 @@ export const bundles: Bundle[] = [
     includes: ["wooster-core", "woo-mount"],
     price: 179,
     currency: "AUD",
-    image: "/images/bundle-ultimate.jpg",
+    image: "/images/hero-product.jpg", // the open Ultimate Bundle box
   },
 ];
 
