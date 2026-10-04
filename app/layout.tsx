@@ -70,7 +70,7 @@ export const metadata: Metadata = {
 const DIRECTION_CONTRACT = `<!--
 THESIS: The site is the Wooster Core box, opened. The lid's line drawing is the live WebGL print, and the kit sits in its foam. It refuses the dark action-sports store with a neon accent.
 OWN-WORLD: Blue-charcoal corrugated lid with silver ink, kraft tray fields, grey pick foam, Signal Orange only where the product is orange. Archivo printed wide like the box, Martian Mono for codes and readouts.
-STORY: A rider watches the handle print, opens the box to see every part and price, reads the spec panel and the rider story, then adds the handle, the mount or the bundle to the cart.
+STORY: A rider watches the handle print, opens the box to see every part and price, reads the spec panel, then adds the handle, the mount or the bundle to the cart.
 FIRST VIEWPORT: The whole lid. WOOSTER CORE across the top in silver over a rule and PERFORMANCE BIG AIR, the live print in the middle band, the handle price and Add to cart bottom-left, ENGINEERED BY ARTY DESIGN bottom-right.
 FORM: The Box and its Foam, #1 of 7 (Impeccable's pick, chosen by Caleb 2 Oct 2026), seed 02f7b57c.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

@@ -57,7 +57,7 @@ The handle is printed layer by layer in PETG/ASA, and the system has a precision
   - a fallback image without WebGL;
   - no layout shift;
   - verify at 1440×900 and 390×844.
-- **Undecided:** the "Built by Riders" facts (who designed it, who rides it, where it was tested, how many prototype rounds). These ship as visible `[PLACEHOLDER]` markers until Arty Design supplies them.
+- **Undecided:** the "Built by Riders" facts (who designed it, who rides it, where it was tested, how many prototype rounds). The section (`components/RiderStory.tsx`) is held out of the page until Arty Design supplies them; no placeholders or invented riders go public (4 Oct 2026).
 - **Missing assets:** `products.ts` points at `/images/product-core.jpg`, `product-mount.jpg`, `product-standalone.jpg` and `bundle-ultimate.jpg`, which do not exist in `public/images`.
 
 ## Brand Commitments
@@ -77,7 +77,7 @@ The handle is printed layer by layer in PETG/ASA, and the system has a precision
   - `product-boxes.jpg` is two closed boxes.
 - The catalogue in `lib/products.ts`.
 - **Absent:** no testimonials, reviews, rider names, test data, press, jump heights or sales figures exist. Never fabricate them. The three "Rider Review / Beta Tester" quotes were removed on 2 Oct 2026 for this reason.
-- `hello@artydesign.com.au` and `instagram.com/arty_dsgn` appear in the repo but are unverified.
+- `hello@artydesign.com.au` and `instagram.com/arty_dsgn` were in the original repo but are unverified, so the site no longer shows them (4 Oct 2026).
 
 ## Product Principles
 

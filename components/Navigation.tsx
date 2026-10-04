@@ -9,7 +9,6 @@ const SECTIONS = [
   { id: "print", label: "The print" },
   { id: "kit", label: "In the box" },
   { id: "specs", label: "Specs" },
-  { id: "riders", label: "Riders" },
 ] as const;
 
 export function Navigation() {

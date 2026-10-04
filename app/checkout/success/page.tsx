@@ -32,16 +32,10 @@ export default function CheckoutSuccess() {
           Wooster Core box and shipped to you.
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+        <div className="mt-8">
           <Link href="/" className="btn btn-signal">
             Back to Wooster Core
           </Link>
-          <p className="text-[0.875rem] text-lid/80">
-            Questions about your order?{" "}
-            <a href="mailto:hello@artydesign.com.au" className="underline underline-offset-4 hover:text-lid">
-              hello@artydesign.com.au
-            </a>
-          </p>
         </div>
       </div>
     </div>

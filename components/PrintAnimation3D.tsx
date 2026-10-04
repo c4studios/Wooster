@@ -5,6 +5,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { PARTS, PART_ORDER, type PartId } from "@/lib/parts";
+import { useMediaQuery } from "@/lib/use-client-env";
 import {
   KIT,
   DOTS,
@@ -488,12 +489,8 @@ export default function PrintAnimation3D({
   onFirstFrame,
   visible = true,
 }: PrintAnimation3DProps) {
-  const [finePointer, setFinePointer] = useState(false);
+  const finePointer = useMediaQuery("(hover: hover) and (pointer: fine)");
   const [dragging, setDragging] = useState(false);
-
-  useEffect(() => {
-    setFinePointer(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
-  }, []);
 
   const spinning = !posterCapture && !reducedMotion && !paused && !dragging && !activePart;
 

@@ -3,6 +3,9 @@
  * sits in filled cut-outs; the facts Arty Design has not supplied yet sit in
  * open cut-outs marked [PLACEHOLDER] (Caleb, 2 Oct 2026). Do not replace a
  * placeholder with anything that has not come from Arty Design.
+ *
+ * HELD OUT OF THE PAGE (4 Oct 2026): app/page.tsx does not render this until
+ * the facts exist. Add it back, with the nav and footer links, only then.
  */
 const STEPS = [
   {

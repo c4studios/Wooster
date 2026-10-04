@@ -41,7 +41,7 @@ The lid's line drawing is printing itself. You can watch the orange layer trace 
 
 ## Unresolved
 
-- The Built by Riders facts: who designed it, who rides it, where it was tested, how many rounds.
+- The Built by Riders facts: who designed it, who rides it, where it was tested, how many rounds. The section is held out of the render until they exist.
 - A product photo of the Standalone Woo Mount.
 - "Universal Kite Bar" compatibility, which Caleb approved, contradicts the board-mount parts. This is flagged to Caleb.
 - The last word of the handle's inlay ("PULL THE ...") can't be read in the photos.

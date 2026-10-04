@@ -89,7 +89,7 @@ export function Kit() {
             <h2 id="kit-title" className="type-wide text-[clamp(2rem,5vw,3.4rem)] font-extrabold uppercase leading-[0.9]">
               In the box
             </h2>
-            <p className="mt-3 max-w-[38rem] text-[1rem] leading-relaxed text-lid/85">
+            <p className="mt-3 max-w-[38rem] text-[1rem] leading-relaxed text-lid">
               Every part has its own cut-out in the foam. Pick a line in the list to find it in the
               tray. Prices are in Australian dollars.
             </p>
@@ -160,7 +160,7 @@ export function Kit() {
                     {focusPart.description}
                   </>
                 ) : (
-                  <span className="text-lid/75">Tap a part in the list to find it in the tray.</span>
+                  <span className="text-lid">Tap a part in the list to find it in the tray.</span>
                 )}
               </figcaption>
             </figure>
@@ -211,12 +211,12 @@ export function Kit() {
 
             {comingSoon.length > 0 && (
               <div className="mt-8">
-                <h3 className="type-label text-[0.75rem] text-lid/80">Coming soon, price to be confirmed</h3>
+                <h3 className="type-label text-[0.75rem] text-lid">Coming soon, price to be confirmed</h3>
                 <ul className="mt-3 divide-y divide-lid/20 border-y border-lid/20">
                   {comingSoon.map((p) => (
                     <li key={p.id} className="flex flex-col gap-0.5 py-2.5 sm:flex-row sm:items-baseline sm:gap-4">
                       <span className="type-wide shrink-0 text-[0.875rem] font-bold uppercase">{p.name}</span>
-                      <span className="text-[0.875rem] text-lid/80">{p.description}</span>
+                      <span className="text-[0.875rem] text-lid">{p.description}</span>
                     </li>
                   ))}
                 </ul>
@@ -261,7 +261,7 @@ function ProductEntry({
       <div className="flex items-baseline justify-between gap-4">
         <h3 className="type-wide text-[1.05rem] font-extrabold uppercase leading-tight">
           {product.name}
-          <span className="type-mono ml-2 align-middle text-[0.6875rem] font-normal tracking-normal text-lid/75">
+          <span className="type-mono ml-2 align-middle text-[0.6875rem] font-normal tracking-normal text-lid">
             {product.sku}
           </span>
         </h3>
@@ -270,7 +270,7 @@ function ProductEntry({
         </p>
       </div>
 
-      {note && <p className="mt-2 text-[0.9375rem] leading-relaxed text-lid/85">{note}</p>}
+      {note && <p className="mt-2 text-[0.9375rem] leading-relaxed text-lid">{note}</p>}
 
       {listParts.length > 0 && (
         <ul className="mt-3">
@@ -292,14 +292,14 @@ function ProductEntry({
                   onFocus={() => onPreview({ parts: [id], focus: id })}
                   onBlur={() => onPreview(NONE)}
                   className={`group grid w-full scroll-mt-[calc(var(--nav-h)+16rem)] grid-cols-[2.25rem_1fr_auto] items-baseline gap-x-2 py-1.5 text-left text-[0.9375rem] transition-colors lg:scroll-mt-[calc(var(--nav-h)+2rem)] ${
-                    on ? "text-lid" : "text-lid/85 hover:text-lid"
+                    "text-lid"
                   }`}
                 >
                   <span className="type-mono text-[0.75rem]">{part.qty}×</span>
                   <span className={`underline-offset-4 ${on ? "underline decoration-2" : "group-hover:underline"}`}>
                     {part.name}
                   </span>
-                  <span className="type-mono text-right text-[0.6875rem] text-lid/70">
+                  <span className="type-mono text-right text-[0.6875rem] text-lid">
                     {part.spec ?? part.code}
                   </span>
                 </button>
@@ -328,7 +328,7 @@ function ProductEntry({
                   className="block h-5 w-5 rounded-full border border-lid/40 ring-offset-2 ring-offset-kraft peer-checked:ring-2 peer-checked:ring-lid peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-lid"
                   style={{ backgroundColor: v.color }}
                 />
-                <span className={variantId === v.id ? "text-lid" : "text-lid/75"}>{v.name}</span>
+                <span className={variantId === v.id ? "text-lid" : "text-lid"}>{v.name}</span>
               </label>
             ))}
           </fieldset>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Component, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { useIsClient, useMediaQuery, useWebGLSupport } from "@/lib/use-client-env";
 import dynamic from "next/dynamic";
 import { getImageProps } from "next/image";
 import { PARTS, PART_ORDER, type PartId } from "@/lib/parts";
@@ -33,15 +34,6 @@ function posterSources() {
   return { wide, tall, rest };
 }
 
-function hasWebGL(): boolean {
-  try {
-    const c = document.createElement("canvas");
-    return Boolean(c.getContext("webgl2") || c.getContext("webgl"));
-  } catch {
-    return false;
-  }
-}
-
 /** If WebGL fails after mounting, the poster simply stays. */
 class StageBoundary extends Component<{ children: ReactNode; onError: () => void }, { failed: boolean }> {
   state = { failed: false };
@@ -66,23 +58,19 @@ const ZOOM_MAX = 1.8;
  */
 export function PrintStage({ buy, credit }: { buy: ReactNode; credit: ReactNode }) {
   const stageRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-  const [live, setLive] = useState(false); // WebGL available and mounted
+  const mounted = useIsClient();
+  const webgl = useWebGLSupport();
+  const reduced = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const [failed, setFailed] = useState(false); // WebGL threw after mounting
+  const live = webgl && !failed;
   const [ready, setReady] = useState(false); // first frame drawn
   const [visible, setVisible] = useState(true);
-  const [reduced, setReduced] = useState(false);
   const [paused, setPaused] = useState(false);
   const [zoom, setZoom] = useState(ZOOM_MIN);
   const [printKey, setPrintKey] = useState(0);
   const [active, setActive] = useState<PartId | null>(null);
   const [pinned, setPinned] = useState(false);
   const [progress, setProgress] = useState({ pct: 85, done: false });
-
-  useEffect(() => {
-    setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    setLive(hasWebGL());
-    setMounted(true);
-  }, []);
 
   // Stop rendering while the stage is off screen.
   useEffect(() => {
@@ -120,7 +108,7 @@ export function PrintStage({ buy, credit }: { buy: ReactNode; credit: ReactNode 
         <div ref={stageRef} className="relative -mx-4 aspect-[4/3] sm:mx-0 md:aspect-[2/1]">
           <picture>
             <source media="(min-width: 768px)" srcSet={wide} />
-            {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
+            {/* eslint-disable-next-line jsx-a11y/alt-text -- alt arrives in the spread from getImageProps */}
             <img
               {...rest}
               fetchPriority="high"
@@ -137,7 +125,7 @@ export function PrintStage({ buy, credit }: { buy: ReactNode; credit: ReactNode 
               style={{ opacity: ready ? 1 : 0 }}
               aria-hidden="true"
             >
-              <StageBoundary onError={() => setLive(false)}>
+              <StageBoundary onError={() => setFailed(true)}>
                 <PrintAnimation3D
                   reducedMotion={reduced}
                   paused={paused}
