@@ -98,7 +98,7 @@ export function Kit() {
           {/* The tray. Below 1024px the wrapper dissolves (display: contents) so the
               photo sticks against the whole section while the list scrolls under it. */}
           <div className="max-lg:contents lg:col-span-7">
-            <figure className="stage sticky top-[var(--nav-h)] z-10 -mx-4 bg-kraft px-4 pb-3 pt-2 sm:mx-0 sm:px-0 lg:top-[calc(var(--nav-h)+1.5rem)] lg:bg-transparent lg:p-0">
+            <figure className="stage sticky top-[var(--nav-h)] z-10 -mx-4 bg-kraft px-4 pb-3 pt-2 max-lg:border-b max-lg:border-lid/25 max-lg:shadow-[0_12px_16px_-14px_rgb(36_26_10/0.6)] sm:mx-0 sm:px-0 lg:top-[calc(var(--nav-h)+1.5rem)] lg:bg-transparent lg:p-0">
               <div
                 className="relative aspect-[16/10] overflow-hidden shadow-[0_22px_40px_-24px_rgb(36_26_10/0.75)]"
                 onMouseLeave={() => setPreview(NONE)}
