@@ -3,7 +3,10 @@ import Image from "next/image";
 /**
  * The box's side panel. Every line is from the repo's original spec list and
  * 3D labels (approved by Caleb, 2 Oct 2026), with the hardware counts taken
- * from the product photos.
+ * from the product photos. Sources for the notes: "Every handle is printed to
+ * exact specifications" and "complex geometries impossible with traditional
+ * methods" are the original SpecsSection copy (pre-redesign commit d206cd7);
+ * "printed in one piece" is its 3D label "monolithic frame".
  */
 const SPECS: [string, string][] = [
   ["Construction", "3D printed"],
@@ -27,7 +30,7 @@ export function SpecSheet() {
         <div className="lg:col-span-5">
           <h2
             id="specs-title"
-            className="type-wide text-[clamp(2rem,5vw,3.4rem)] font-extrabold uppercase leading-[0.9] text-silver-hi"
+            className="type-wide text-[clamp(2rem,5vw,3.4rem)] font-semibold uppercase leading-[0.9] text-ink"
           >
             Specs
           </h2>
@@ -97,7 +100,7 @@ export function SpecSheet() {
               <span className="type-label block text-[0.6875rem] text-silver-hi">Printed in one piece</span>
               <span className="mt-1 block text-[0.875rem] leading-relaxed text-silver">
                 Printing layer by layer allows shapes a mould can&apos;t make. Every handle is printed to
-                the same specification.
+                exact specifications.
               </span>
             </figcaption>
           </figure>

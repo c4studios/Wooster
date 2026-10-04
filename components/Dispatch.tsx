@@ -27,7 +27,7 @@ export function Dispatch() {
         <div className="lg:col-span-5">
           <h2
             id="dispatch-title"
-            className="type-wide text-[clamp(2rem,5vw,3.4rem)] font-extrabold uppercase leading-[0.9] text-silver-hi"
+            className="type-wide text-[clamp(2rem,5vw,3.4rem)] font-semibold uppercase leading-[0.9] text-ink"
           >
             Ready to ship
           </h2>
@@ -40,18 +40,18 @@ export function Dispatch() {
               p ? (
                 <li key={p.id} className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-lid-line py-4">
                   <div>
-                    <p className="type-wide text-[1rem] font-extrabold uppercase text-silver-hi">{p.name}</p>
+                    <p className="type-wide text-[1rem] font-semibold uppercase text-ink">{p.name}</p>
                     <p className="mt-0.5 text-[0.875rem] text-silver-lo">
                       {p.id === "wooster-core" ? "Handle, 4 bolts, 4 washers, 2 clips" : "Handle and Woo Mount"}
                     </p>
                   </div>
                   <div className="flex items-center gap-4">
-                    <span className="type-wide text-[1.3rem] font-bold text-silver-hi">
+                    <span className="type-wide text-[1.3rem] font-semibold text-ink">
                       {formatPrice(p.price, p.currency)}
                     </span>
                     <button
                       type="button"
-                      className={`btn ${p.id === "wooster-core" ? "btn-signal" : "btn-line text-silver-hi"}`}
+                      className={`btn ${p.id === "wooster-core" ? "btn-silver" : "btn-line text-silver-hi"}`}
                       onClick={() => addItem(p, p.variants?.[0])}
                     >
                       <BoxIcon />

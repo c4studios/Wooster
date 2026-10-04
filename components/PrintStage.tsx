@@ -4,7 +4,8 @@ import { Component, useCallback, useEffect, useRef, useState, type ReactNode } f
 import { useIsClient, useMediaQuery, useWebGLSupport } from "@/lib/use-client-env";
 import dynamic from "next/dynamic";
 import { getImageProps } from "next/image";
-import { PARTS, PART_ORDER, type PartId } from "@/lib/parts";
+import { PARTS, PRODUCT_PARTS, type PartId } from "@/lib/parts";
+import { formatPrice, getProduct } from "@/lib/products";
 import { MinusIcon, PauseIcon, PlusIcon, ReprintIcon, TurnIcon } from "./icons";
 
 const PrintAnimation3D = dynamic(() => import("./PrintAnimation3D"), {
@@ -47,6 +48,16 @@ class StageBoundary extends Component<{ children: ReactNode; onError: () => void
     return this.state.failed ? null : this.props.children;
   }
 }
+
+// The bed shows the bundle; the legend says which parts each product brings.
+const MOUNT = getProduct("woo-mount");
+const legendGroups: { label: string; parts: PartId[] }[] = [
+  { label: "In the handle kit", parts: PRODUCT_PARTS["wooster-core"] },
+  {
+    label: MOUNT ? `Woo Mount add-on, ${formatPrice(MOUNT.price, MOUNT.currency)}` : "Woo Mount add-on",
+    parts: PRODUCT_PARTS["woo-mount"],
+  },
+];
 
 const ZOOM_MIN = 1;
 const ZOOM_MAX = 1.8;
@@ -183,53 +194,59 @@ export function PrintStage({ buy, credit }: { buy: ReactNode; credit: ReactNode 
       <div className="a-buy knock">
         {buy}
 
-        {/* Contents: the keyboard and touch route to every callout. */}
-        <div className="mt-6 lg:mt-5">
+        {/* Contents of the print bed, grouped by what each product puts in the
+            box (the bed shows the bundle). Also the keyboard and touch route to
+            every callout. */}
+        <div
+          className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-[auto_auto] sm:justify-start lg:mt-5"
+          onMouseLeave={() => {
+            if (!pinned) setActive(null);
+          }}
+        >
           <p id="parts-hint" className="sr-only">
             Choose a part to mark it on the printed kit.
           </p>
-          <ul
-            className="-mx-2.5 flex flex-wrap lg:mx-0 lg:grid lg:w-[22rem] lg:grid-cols-2"
-            aria-describedby="parts-hint"
-            onMouseLeave={() => {
-              if (!pinned) setActive(null);
-            }}
-          >
-            {PART_ORDER.map((id) => {
-              const part = PARTS[id];
-              const on = active === id;
-              return (
-                <li key={id}>
-                  <button
-                    type="button"
-                    aria-pressed={on && pinned}
-                    onClick={() => choose(on && pinned ? null : id, !(on && pinned))}
-                    onMouseEnter={() => {
-                      if (!pinned) setActive(id);
-                    }}
-                    onFocus={() => {
-                      if (!pinned) setActive(id);
-                    }}
-                    onBlur={() => {
-                      if (!pinned) setActive(null);
-                    }}
-                    className={`group inline-flex min-h-9 items-center gap-2 px-2.5 text-[0.8125rem] transition-colors lg:px-0 ${
-                      on ? "text-silver-hi" : "text-silver-lo hover:text-silver"
-                    }`}
-                  >
-                    <span
-                      className={`block h-2 w-2 rounded-full transition-colors ${
-                        on ? "bg-signal" : "bg-signal/50 group-hover:bg-signal/85"
-                      }`}
-                      aria-hidden="true"
-                    />
-                    <span className="type-mono text-[0.6875rem]">{part.qty}×</span>
-                    {part.name}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+          {legendGroups.map((group) => (
+            <div key={group.label}>
+              <p className="type-label text-[0.625rem] tracking-[0.12em] text-silver-lo">{group.label}</p>
+              <ul className="-mx-2.5 mt-1 flex flex-wrap lg:mx-0 lg:flex-col" aria-describedby="parts-hint">
+                {group.parts.map((id) => {
+                  const part = PARTS[id];
+                  const on = active === id;
+                  return (
+                    <li key={id}>
+                      <button
+                        type="button"
+                        aria-pressed={on && pinned}
+                        onClick={() => choose(on && pinned ? null : id, !(on && pinned))}
+                        onMouseEnter={() => {
+                          if (!pinned) setActive(id);
+                        }}
+                        onFocus={() => {
+                          if (!pinned) setActive(id);
+                        }}
+                        onBlur={() => {
+                          if (!pinned) setActive(null);
+                        }}
+                        className={`group inline-flex min-h-9 items-center gap-2 px-2.5 text-[0.8125rem] transition-colors lg:min-h-8 lg:px-0 ${
+                          on ? "text-silver-hi" : "text-silver hover:text-silver-hi"
+                        }`}
+                      >
+                        <span
+                          className={`block h-2 w-2 rounded-full transition-colors ${
+                            on ? "bg-signal" : "bg-signal/50 group-hover:bg-signal/85"
+                          }`}
+                          aria-hidden="true"
+                        />
+                        <span className="type-mono text-[0.6875rem]">{part.qty}×</span>
+                        {part.name}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
           {/* On phones a floating callout would overflow, so its text prints here. */}
           <p className="mt-2 min-h-[2.8em] text-[0.8125rem] leading-snug text-silver sm:hidden" aria-live="polite">
             {activePart ? (

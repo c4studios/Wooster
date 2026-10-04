@@ -65,9 +65,9 @@ export function Navigation() {
       <nav aria-label="Main" className="mx-auto flex h-[var(--nav-h)] max-w-[90rem] items-center justify-between px-4 sm:px-6 lg:px-12">
         <Link
           href="/"
-          className="type-wide text-[0.95rem] font-extrabold uppercase tracking-[0.02em] text-silver-hi"
+          className="type-wide text-[0.95rem] font-semibold uppercase tracking-[0.03em] text-ink"
         >
-          Wooster <span className="text-[0.72em] font-bold text-silver">Core</span>
+          Wooster <span className="text-[0.72em]">Core</span>
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -83,7 +83,7 @@ export function Navigation() {
               {label}
               <span
                 aria-hidden="true"
-                className={`absolute inset-x-3 -bottom-0.5 h-px origin-left bg-signal transition-transform duration-300 ${
+                className={`absolute inset-x-3 -bottom-0.5 h-px origin-left bg-silver-hi transition-transform duration-300 ${
                   activeSection === id ? "scale-x-100" : "scale-x-0"
                 }`}
               />
@@ -119,7 +119,7 @@ export function Navigation() {
               <a
                 href={`#${id}`}
                 onClick={() => setMenuOpen(false)}
-                className="type-wide flex min-h-12 items-center border-b border-lid-line text-[1.05rem] font-bold uppercase text-silver last:border-b-0"
+                className="type-wide flex min-h-12 items-center border-b border-lid-line text-[1.05rem] font-semibold uppercase text-silver last:border-b-0"
               >
                 {label}
               </a>

@@ -15,6 +15,8 @@
   --color-silver: #b7bcc6;
   --color-silver-hi: #e1e4e9;
   --color-silver-lo: #8e95a1;
+  /* The box's printed silver, measured from product-boxes.jpg. */
+  --color-ink: #8b95a4;
 
   /* Tray: kraft board */
   --color-kraft: #b99860;
@@ -35,7 +37,7 @@
   --color-slip: #eeefeb;
   --color-slip-line: #cfd1cb;
 
-  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-display: var(--font-lexend), "Arial", sans-serif;
   --font-body: var(--font-archivo), "Arial", sans-serif;
   --font-mono: var(--font-martian), ui-monospace, monospace;
 }
@@ -93,20 +95,15 @@ html {
 
 /* ── Materials ─────────────────────────────────────────── */
 
-/* Corrugated board: the lid's vertical flutes, as faint as the print allows. */
+/* The lid and the tray are flat fields of the box's real colours. (A CSS
+   flute pattern read as imitation board, and the kraft noise never showed;
+   both were removed after the finish review.) */
 .material-lid {
   background-color: var(--color-lid);
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgb(255 255 255 / 0.022) 0 1px,
-    transparent 1px 7px
-  );
 }
 
-/* Kraft: flat board with a little fibre. */
 .material-kraft {
   background-color: var(--color-kraft);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75 0.08' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.25 0 0 0 0 0.17 0 0 0 0 0.06 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
 }
 
 /* Pick foam: dense, fine speckle. */
@@ -133,16 +130,14 @@ html {
 
 /* ── Type helpers ──────────────────────────────────────── */
 
-/* The box prints its lettering wide. Archivo's wdth axis does the same. */
+/* The box's lettering: geometric, round O's, semibold, normal width. */
 .type-wide {
   font-family: var(--font-display);
-  font-stretch: 125%;
 }
 
 .type-label {
-  font-family: var(--font-body);
-  font-stretch: 112%;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -196,14 +191,15 @@ p {
   opacity: 0.55;
 }
 
-/* Signal Orange is the mount's colourway; it marks the one action per block. */
-.btn-signal {
-  background: var(--color-signal);
-  color: var(--color-stealth);
+/* Silver ink on the lid: the box's own print, filled. Signal Orange stays on
+   the product's orange parts and the print's hotspots, never on buttons. */
+.btn-silver {
+  background: var(--color-silver);
+  color: var(--color-lid);
 }
 
-.btn-signal:hover:not(:disabled) {
-  background: #ff8124;
+.btn-silver:hover:not(:disabled) {
+  background: var(--color-silver-hi);
 }
 
 /* Charcoal ink: the box's own print colour, for actions on kraft. */
@@ -399,8 +395,7 @@ p {
 
 .callout-name {
   font-family: var(--font-display);
-  font-stretch: 125%;
-  font-weight: 650;
+  font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Martian_Mono } from "next/font/google";
+import { Archivo, Lexend, Martian_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { CartDrawer } from "@/components/CartDrawer";
@@ -7,8 +7,16 @@ import { C4Credit } from "@/components/C4Credit";
 import { CartProvider } from "@/lib/cart";
 import { getSiteUrlObject } from "@/lib/site-url";
 
-// Archivo's width axis carries the box's wide lettering and the body text in
-// one family. Martian Mono is kept for part codes, quantities and readouts.
+// Lexend carries the box's lettering: a geometric sans with round O's, set
+// semibold at normal width like the WOOSTER CORE print (Montserrat-like on the
+// box, which C4 does not use as a brand face). Archivo sets the body text;
+// Martian Mono is kept for part codes, quantities and readouts.
+const lexend = Lexend({
+  subsets: ["latin"],
+  variable: "--font-lexend",
+  display: "swap",
+});
+
 const archivo = Archivo({
   subsets: ["latin"],
   axes: ["wdth"],
@@ -69,7 +77,7 @@ export const metadata: Metadata = {
 // review can audit the render against it.
 const DIRECTION_CONTRACT = `<!--
 THESIS: The site is the Wooster Core box, opened. The lid's line drawing is the live WebGL print, and the kit sits in its foam. It refuses the dark action-sports store with a neon accent.
-OWN-WORLD: Blue-charcoal corrugated lid with silver ink, kraft tray fields, grey pick foam, Signal Orange only where the product is orange. Archivo printed wide like the box, Martian Mono for codes and readouts.
+OWN-WORLD: Blue-charcoal lid with the box's silver ink, kraft tray fields, the grey pick foam in the real photos, Signal Orange only where the product is orange. Lexend semibold like the box lettering, Archivo for reading, Martian Mono for codes and readouts.
 STORY: A rider watches the handle print, opens the box to see every part and price, reads the spec panel, then adds the handle, the mount or the bundle to the cart.
 FIRST VIEWPORT: The whole lid. WOOSTER CORE across the top in silver over a rule and PERFORMANCE BIG AIR, the live print in the middle band, the handle price and Add to cart bottom-left, ENGINEERED BY ARTY DESIGN bottom-right.
 FORM: The Box and its Foam, #1 of 7 (Impeccable's pick, chosen by Caleb 2 Oct 2026), seed 02f7b57c.
@@ -85,7 +93,7 @@ export default function RootLayout({
     <html
       lang="en-AU"
       data-scroll-behavior="smooth"
-      className={`${archivo.variable} ${martianMono.variable}`}
+      className={`${lexend.variable} ${archivo.variable} ${martianMono.variable}`}
     >
       <body className="min-h-screen antialiased">
         <div hidden dangerouslySetInnerHTML={{ __html: DIRECTION_CONTRACT }} />

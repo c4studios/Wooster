@@ -86,7 +86,7 @@ export function Kit() {
       <div className="mx-auto max-w-[90rem] px-4 py-16 sm:px-6 md:py-24 lg:px-12">
         <div className="grid grid-cols-1 gap-x-12 gap-y-8 lg:grid-cols-12">
           <header className="lg:col-span-12">
-            <h2 id="kit-title" className="type-wide text-[clamp(2rem,5vw,3.4rem)] font-extrabold uppercase leading-[0.9]">
+            <h2 id="kit-title" className="type-wide text-[clamp(2rem,5vw,3.4rem)] font-semibold uppercase leading-[0.9]">
               In the box
             </h2>
             <p className="mt-3 max-w-[38rem] text-[1rem] leading-relaxed text-lid">
@@ -95,8 +95,9 @@ export function Kit() {
             </p>
           </header>
 
-          {/* The tray. Sticky on small screens so the list scrolls under it. */}
-          <div className="lg:col-span-7">
+          {/* The tray. Below 1024px the wrapper dissolves (display: contents) so the
+              photo sticks against the whole section while the list scrolls under it. */}
+          <div className="max-lg:contents lg:col-span-7">
             <figure className="stage sticky top-[var(--nav-h)] z-10 -mx-4 bg-kraft px-4 pb-3 pt-2 sm:mx-0 sm:px-0 lg:top-[calc(var(--nav-h)+1.5rem)] lg:bg-transparent lg:p-0">
               <div
                 className="relative aspect-[16/10] overflow-hidden shadow-[0_22px_40px_-24px_rgb(36_26_10/0.75)]"
@@ -215,7 +216,7 @@ export function Kit() {
                 <ul className="mt-3 divide-y divide-lid/20 border-y border-lid/20">
                   {comingSoon.map((p) => (
                     <li key={p.id} className="flex flex-col gap-0.5 py-2.5 sm:flex-row sm:items-baseline sm:gap-4">
-                      <span className="type-wide shrink-0 text-[0.875rem] font-bold uppercase">{p.name}</span>
+                      <span className="type-wide shrink-0 text-[0.875rem] font-semibold uppercase">{p.name}</span>
                       <span className="text-[0.875rem] text-lid">{p.description}</span>
                     </li>
                   ))}
@@ -259,13 +260,13 @@ function ProductEntry({
       onMouseLeave={() => onPreview(NONE)}
     >
       <div className="flex items-baseline justify-between gap-4">
-        <h3 className="type-wide text-[1.05rem] font-extrabold uppercase leading-tight">
+        <h3 className="type-wide text-[1.05rem] font-semibold uppercase leading-tight">
           {product.name}
           <span className="type-mono ml-2 align-middle text-[0.6875rem] font-normal tracking-normal text-lid">
             {product.sku}
           </span>
         </h3>
-        <p className="type-wide shrink-0 text-[1.35rem] font-bold leading-none">
+        <p className="type-wide shrink-0 text-[1.35rem] font-semibold leading-none">
           {formatPrice(product.price, product.currency)}
         </p>
       </div>

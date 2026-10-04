@@ -41,7 +41,7 @@ export function RiderStory() {
         <div className="grid gap-6 md:grid-cols-12 md:items-end">
           <h2
             id="riders-title"
-            className="type-wide text-[clamp(2rem,5vw,3.4rem)] font-extrabold uppercase leading-[0.9] text-silver-hi md:col-span-7"
+            className="type-wide text-[clamp(2rem,5vw,3.4rem)] font-semibold uppercase leading-[0.9] text-silver-hi md:col-span-7"
           >
             Built by riders
           </h2>
@@ -53,7 +53,7 @@ export function RiderStory() {
         <ol className="mt-10 grid gap-4 md:grid-cols-12">
           {STEPS.map((step) => (
             <li key={step.title} className={`foam-cut flex flex-col gap-4 p-5 sm:p-6 ${step.span}`}>
-              <h3 className="type-wide text-[1.15rem] font-extrabold uppercase text-silver-hi">
+              <h3 className="type-wide text-[1.15rem] font-semibold uppercase text-silver-hi">
                 {step.title}
               </h3>
               <p className="max-w-[34rem] text-[0.9375rem] leading-relaxed text-silver">{step.known}</p>

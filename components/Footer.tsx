@@ -13,9 +13,9 @@ export function Footer() {
         <div className="md:col-span-7">
           <Link
             href="/"
-            className="type-wide text-[1.4rem] font-extrabold uppercase leading-none text-silver-hi"
+            className="type-wide text-[1.4rem] font-semibold uppercase leading-none text-ink"
           >
-            Wooster <span className="text-[0.7em] text-silver">Core</span>
+            Wooster <span className="text-[0.7em]">Core</span>
           </Link>
           <p className="mt-3 max-w-[22rem] text-[0.9375rem] leading-relaxed text-silver">
             A 3D-printed kitesurfing handle for big air. Engineered by Arty Design.

@@ -13,18 +13,17 @@ export default function CartPage() {
   return (
     <div className="material-lid min-h-[100svh] px-4 pb-16 pt-[calc(var(--nav-h)+2rem)] sm:px-6">
       <div className="surface-slip mx-auto max-w-3xl bg-slip px-5 py-8 text-lid shadow-[0_30px_60px_-30px_rgb(0_0_0/0.7)] sm:px-10 sm:py-10">
-        <p className="type-label text-[0.6875rem] text-lid/70">Packing slip</p>
-        <h1 className="type-wide mt-1 text-[clamp(1.8rem,5vw,2.6rem)] font-extrabold uppercase leading-none">
+        <h1 className="type-wide text-[clamp(1.8rem,5vw,2.6rem)] font-semibold uppercase leading-none">
           Your cart
         </h1>
 
         {items.length === 0 ? (
           <div className="mt-10 border-t-2 border-lid pt-8">
-            <p className="type-wide text-[1.15rem] font-extrabold uppercase">Nothing in the box yet</p>
+            <p className="type-wide text-[1.15rem] font-semibold uppercase">Nothing in the box yet</p>
             <p className="mt-2 max-w-[26rem] text-[0.9375rem] leading-relaxed text-lid/80">
               The handle kit, the Woo Mount and the bundle are all on the home page.
             </p>
-            <Link href="/#kit" className="btn btn-signal mt-6">
+            <Link href="/#kit" className="btn btn-ink mt-6">
               See what&apos;s in the box
             </Link>
           </div>
@@ -42,7 +41,7 @@ export default function CartPage() {
                       <ProductImage src={image} alt="" fill sizes="88px" className="object-cover" compactFallback />
                     </div>
                     <div>
-                      <h2 className="type-wide text-[1rem] font-extrabold uppercase">{item.product.name}</h2>
+                      <h2 className="type-wide text-[1rem] font-semibold uppercase">{item.product.name}</h2>
                       <p className="mt-0.5 text-[0.875rem] text-lid/75">
                         {item.variant && item.product.variants && item.product.variants.length > 1
                           ? `${item.variant.name} · `
@@ -79,7 +78,7 @@ export default function CartPage() {
                         </button>
                       </div>
                     </div>
-                    <p className="type-wide col-start-2 text-[1.05rem] font-bold sm:col-start-3 sm:text-right">
+                    <p className="type-wide col-start-2 text-[1.05rem] font-semibold sm:col-start-3 sm:text-right">
                       {formatPrice(item.product.price * item.quantity, item.product.currency)}
                     </p>
                   </li>
@@ -89,11 +88,11 @@ export default function CartPage() {
 
             <div className="mt-6 flex items-baseline justify-between border-t-2 border-lid pt-5">
               <span className="type-label text-[0.75rem]">Total</span>
-              <span className="type-wide text-[2rem] font-extrabold">{formatPrice(totalPrice, "AUD")}</span>
+              <span className="type-wide text-[2rem] font-semibold">{formatPrice(totalPrice, "AUD")}</span>
             </div>
             <p className="mt-1 text-[0.875rem] text-lid/75">Shipping is calculated at checkout.</p>
             <div className="mt-6 max-w-sm">
-              <CheckoutButton label="Proceed to checkout" className="btn btn-signal w-full" />
+              <CheckoutButton label="Proceed to checkout" className="btn btn-ink w-full" />
             </div>
           </>
         )}

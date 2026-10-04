@@ -18,13 +18,13 @@ export function Lid() {
         <header>
           <h1
             id="lid-title"
-            className="type-wide flex items-baseline gap-[0.32em] font-extrabold uppercase leading-[0.84] text-silver-hi"
+            className="type-wide flex items-baseline gap-[0.3em] font-semibold uppercase leading-[0.84] text-ink"
           >
-            <span className="text-[clamp(2.6rem,10.4vw,5.75rem)] tracking-[-0.015em]">Wooster</span>
-            <span className="text-[clamp(1.05rem,4.1vw,2.3rem)] tracking-[0.01em] text-silver">Core</span>
+            <span className="text-[clamp(2.5rem,10vw,5.6rem)] tracking-[0.01em]">Wooster</span>
+            <span className="text-[clamp(1.15rem,4.4vw,2.5rem)] tracking-[0.03em]">Core</span>
           </h1>
-          <div className="mt-3 flex flex-col gap-2 border-t border-silver-lo/45 pt-3 md:flex-row md:items-baseline md:justify-between md:gap-8">
-            <p className="type-label text-[0.75rem] tracking-[0.32em] text-silver md:text-[0.8125rem]">
+          <div className="mt-3 flex flex-col gap-3 border-t border-silver-lo/45 pt-3 md:flex-row md:items-center md:justify-between md:gap-8">
+            <p className="type-wide text-[clamp(0.95rem,3.4vw,1.95rem)] font-normal uppercase leading-none tracking-[0.2em] text-ink">
               Performance Big Air
             </p>
             <p className="max-w-[36rem] text-[0.9375rem] leading-snug text-silver">
@@ -54,7 +54,7 @@ function BuyBlock() {
         Wooster Core handle <span className="type-mono ml-1 tracking-normal">{handle.sku}</span>
       </p>
       <p className="mt-1.5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <span className="type-wide text-[1.9rem] font-bold leading-none text-silver-hi">
+        <span className="type-wide text-[1.9rem] font-semibold leading-none text-ink">
           {formatPrice(handle.price, handle.currency)}
         </span>
         <span className="text-[0.8125rem] text-silver-lo">Handle, 4 bolts, 4 washers, 2 clips</span>
@@ -62,7 +62,7 @@ function BuyBlock() {
       <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
         <button
           type="button"
-          className="btn btn-signal"
+          className="btn btn-silver"
           onClick={() => addItem(handle, handle.variants?.[0])}
         >
           <BoxIcon />
@@ -88,7 +88,7 @@ function MakerCredit() {
       <span className="type-label block text-[0.6875rem] tracking-[0.22em] text-silver-lo">
         Engineered by
       </span>
-      <span className="type-wide mt-1 block text-[1.3rem] font-extrabold uppercase leading-[0.95] text-silver">
+      <span className="type-wide mt-1 block text-[1.3rem] font-semibold uppercase leading-[0.95] text-ink">
         Arty
         <br />
         Design

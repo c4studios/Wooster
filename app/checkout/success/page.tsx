@@ -15,10 +15,9 @@ export default function CheckoutSuccess() {
               strokeLinecap="square"
             />
           </svg>
-          <p className="type-label text-[0.6875rem] text-lid/75">Packing slip</p>
         </div>
 
-        <h1 className="type-wide mt-4 text-[clamp(1.9rem,6vw,2.8rem)] font-extrabold uppercase leading-[0.95]">
+        <h1 className="type-wide mt-4 text-[clamp(1.9rem,6vw,2.8rem)] font-semibold uppercase leading-[0.95]">
           Order confirmed
         </h1>
 
@@ -33,7 +32,7 @@ export default function CheckoutSuccess() {
         </p>
 
         <div className="mt-8">
-          <Link href="/" className="btn btn-signal">
+          <Link href="/" className="btn btn-ink">
             Back to Wooster Core
           </Link>
         </div>

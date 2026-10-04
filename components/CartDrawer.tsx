@@ -83,8 +83,7 @@ export function CartDrawer() {
           >
             <div className="flex items-start justify-between border-b-2 border-lid px-5 pb-4 pt-5 sm:px-6">
               <div>
-                <p className="type-label text-[0.6875rem] text-lid/70">Packing slip</p>
-                <h2 id="cart-title" className="type-wide mt-1 text-[1.5rem] font-extrabold uppercase leading-none">
+                <h2 id="cart-title" className="type-wide text-[1.5rem] font-semibold uppercase leading-none">
                   Your cart
                   <span className="type-mono ml-2 align-middle text-[0.8125rem] font-normal">
                     {totalItems} {totalItems === 1 ? "item" : "items"}
@@ -105,7 +104,7 @@ export function CartDrawer() {
             <div className="flex-1 overflow-y-auto px-5 sm:px-6">
               {items.length === 0 ? (
                 <div className="flex h-full flex-col items-start justify-center gap-4 py-12">
-                  <p className="type-wide text-[1.15rem] font-extrabold uppercase">Nothing in the box yet</p>
+                  <p className="type-wide text-[1.15rem] font-semibold uppercase">Nothing in the box yet</p>
                   <p className="max-w-[20rem] text-[0.9375rem] leading-relaxed text-lid/80">
                     The handle kit, the Woo Mount and the bundle are all listed under In the box.
                   </p>
@@ -124,7 +123,7 @@ export function CartDrawer() {
                           <ProductImage src={image} alt="" fill sizes="64px" className="object-cover" compactFallback />
                         </div>
                         <div className="min-w-0">
-                          <p className="type-wide truncate text-[0.875rem] font-extrabold uppercase">
+                          <p className="type-wide truncate text-[0.875rem] font-semibold uppercase">
                             {item.product.name}
                           </p>
                           <p className="mt-0.5 text-[0.8125rem] text-lid/75">
@@ -162,7 +161,7 @@ export function CartDrawer() {
                             </button>
                           </div>
                         </div>
-                        <p className="type-wide text-right text-[0.9375rem] font-bold">
+                        <p className="type-wide text-right text-[0.9375rem] font-semibold">
                           {formatPrice(item.product.price * item.quantity, item.product.currency)}
                         </p>
                       </li>
@@ -176,10 +175,10 @@ export function CartDrawer() {
               <div className="border-t-2 border-lid px-5 pb-6 pt-4 sm:px-6">
                 <div className="flex items-baseline justify-between">
                   <span className="type-label text-[0.75rem]">Total</span>
-                  <span className="type-wide text-[1.6rem] font-extrabold">{formatPrice(totalPrice, "AUD")}</span>
+                  <span className="type-wide text-[1.6rem] font-semibold">{formatPrice(totalPrice, "AUD")}</span>
                 </div>
                 <p className="mt-1 text-[0.8125rem] text-lid/75">Shipping is calculated at checkout.</p>
-                <CheckoutButton label="Checkout" className="btn btn-signal mt-4 w-full" />
+                <CheckoutButton label="Checkout" className="btn btn-ink mt-4 w-full" />
               </div>
             )}
           </motion.div>
