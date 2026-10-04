@@ -1,0 +1,498 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T14:34:23Z",
+  "title": "Design System: Wooster Core",
+  "extensions": {
+    "colorMeta": {
+      "lid": {
+        "role": "primary",
+        "displayName": "Lid Charcoal",
+        "canonical": "#222531",
+        "oklch": "oklch(26.7% 0.023 273.8)",
+        "tonalRamp": [
+          "#080a15",
+          "#212430",
+          "#3e414e",
+          "#5d616f",
+          "#7e8290",
+          "#a0a4b4",
+          "#c4c8d9",
+          "#e9eefe"
+        ]
+      },
+      "lid-deep": {
+        "role": "primary",
+        "displayName": "Lid Shadow",
+        "canonical": "#191b24",
+        "oklch": "oklch(22.4% 0.018 275.1)",
+        "tonalRamp": [
+          "#090b13",
+          "#22242e",
+          "#3f414c",
+          "#5e616c",
+          "#7f828d",
+          "#a1a4b1",
+          "#c5c8d5",
+          "#ebeefb"
+        ]
+      },
+      "lid-line": {
+        "role": "primary",
+        "displayName": "Lid Score Line",
+        "canonical": "#363b4b",
+        "oklch": "oklch(35.4% 0.029 271.3)",
+        "tonalRamp": [
+          "#070a17",
+          "#202433",
+          "#3c4152",
+          "#5b6172",
+          "#7c8294",
+          "#9ea4b8",
+          "#c2c9dc",
+          "#e9eefe"
+        ]
+      },
+      "ink": {
+        "role": "secondary",
+        "displayName": "Box Silver Ink",
+        "canonical": "#8b95a4",
+        "oklch": "oklch(66.7% 0.025 258.4)",
+        "tonalRamp": [
+          "#050b16",
+          "#1e2531",
+          "#3a4350",
+          "#596270",
+          "#798392",
+          "#9ca6b5",
+          "#bfcada",
+          "#e5effe"
+        ]
+      },
+      "silver": {
+        "role": "secondary",
+        "displayName": "Silver",
+        "canonical": "#b7bcc6",
+        "oklch": "oklch(79.4% 0.015 264.5)",
+        "tonalRamp": [
+          "#080b12",
+          "#21252d",
+          "#3e424a",
+          "#5d616a",
+          "#7e828c",
+          "#a0a5af",
+          "#c4c9d3",
+          "#e9eff9"
+        ]
+      },
+      "silver-hi": {
+        "role": "secondary",
+        "displayName": "Silver Highlight",
+        "canonical": "#e1e4e9",
+        "oklch": "oklch(91.8% 0.008 260.7)",
+        "tonalRamp": [
+          "#090b0e",
+          "#232529",
+          "#404246",
+          "#5f6166",
+          "#808287",
+          "#a2a5aa",
+          "#c6c9ce",
+          "#eceff4"
+        ]
+      },
+      "silver-lo": {
+        "role": "secondary",
+        "displayName": "Silver Lowlight",
+        "canonical": "#8e95a1",
+        "oklch": "oklch(66.8% 0.020 261.3)",
+        "tonalRamp": [
+          "#070b13",
+          "#20252f",
+          "#3c424d",
+          "#5b626d",
+          "#7c838e",
+          "#9ea5b2",
+          "#c2cad6",
+          "#e7effc"
+        ]
+      },
+      "signal": {
+        "role": "tertiary",
+        "displayName": "Signal Orange",
+        "canonical": "#ff6b00",
+        "oklch": "oklch(70.2% 0.200 45.1)",
+        "tonalRamp": [
+          "#190400",
+          "#411601",
+          "#6e2a02",
+          "#9f4000",
+          "#d25702",
+          "#fe7831",
+          "#ffb695",
+          "#ffe9e0"
+        ]
+      },
+      "kraft": {
+        "role": "neutral",
+        "displayName": "Kraft Board",
+        "canonical": "#b99860",
+        "oklch": "oklch(69.7% 0.084 80.0)",
+        "tonalRamp": [
+          "#120900",
+          "#332201",
+          "#573c01",
+          "#7a5b22",
+          "#9d7d45",
+          "#c19f67",
+          "#e6c48a",
+          "#ffeccd"
+        ]
+      },
+      "slip": {
+        "role": "neutral",
+        "displayName": "Packing Slip",
+        "canonical": "#eeefeb",
+        "oklch": "oklch(95.0% 0.005 117.9)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252522",
+          "#42423f",
+          "#61625e",
+          "#82837f",
+          "#a4a5a2",
+          "#c9cac6",
+          "#eeefeb"
+        ]
+      },
+      "slip-line": {
+        "role": "neutral",
+        "displayName": "Slip Rule",
+        "canonical": "#cfd1cb",
+        "oklch": "oklch(85.7% 0.008 121.7)",
+        "tonalRamp": [
+          "#0a0c08",
+          "#242621",
+          "#41433e",
+          "#60625d",
+          "#81837e",
+          "#a4a6a0",
+          "#c8cac4",
+          "#edefe9"
+        ]
+      },
+      "stealth": {
+        "role": "neutral",
+        "displayName": "Stealth Black",
+        "canonical": "#16171b",
+        "oklch": "oklch(20.5% 0.008 274.5)",
+        "tonalRamp": [
+          "#0a0b0f",
+          "#242529",
+          "#414246",
+          "#606166",
+          "#818287",
+          "#a3a5aa",
+          "#c7c9ce",
+          "#edeef4"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The lid name only: WOOSTER with CORE on its baseline, uppercase in Box Silver Ink."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "One per section, uppercase. Slip page titles sit a step down."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Product names in the packing list with a mono SKU beside; prices and totals in the same face and weight."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text in Archivo, held to 30–38rem; tabular numerals everywhere."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Names a value or a group the way the carton does: spec terms, legend groups, captions, the readout, Total."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "SKUs, part codes, quantities, print settings, percentages and counts."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Every filled and outlined button: Archivo stretched to 112% at weight 650."
+      }
+    },
+    "shadows": [
+      {
+        "name": "slip-on-lid",
+        "value": "0 30px 60px -30px rgb(0 0 0 / 0.7)",
+        "purpose": "The /cart and Order confirmed sheets lying on the lid."
+      },
+      {
+        "name": "drawer-edge",
+        "value": "-24px 0 48px -24px rgb(0 0 0 / 0.6)",
+        "purpose": "The cart drawer's leading edge over the page."
+      },
+      {
+        "name": "photo-on-kraft",
+        "value": "0 22px 40px -24px rgb(36 26 10 / 0.75)",
+        "purpose": "The tray photo lifting off the kraft; tinted kraft brown."
+      },
+      {
+        "name": "pinned-tray-edge",
+        "value": "0 12px 16px -14px rgb(36 26 10 / 0.6)",
+        "purpose": "Lower edge of the sticky tray on phones, over a 25% charcoal hairline."
+      },
+      {
+        "name": "lid-knockout",
+        "value": "0 0 10px #222531, 0 0 4px #222531, 0 0 2px #222531",
+        "purpose": "A text-shadow, not a box-shadow: keeps corner text legible over the wireframe on the lid from 1024px."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-box",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "The shared ease: buttons, callout strokes and card, the drawer slide, the order tick."
+      },
+      {
+        "name": "duration-button",
+        "value": "160ms",
+        "purpose": "Button colour changes and the 1px press."
+      },
+      {
+        "name": "duration-fade",
+        "value": "300ms",
+        "purpose": "Poster-to-canvas crossfade, tray spotlight, nav bar fill and the nav underline."
+      },
+      {
+        "name": "duration-drawer",
+        "value": "320ms",
+        "purpose": "Cart drawer slide from the right (a fade under reduced motion); its scrim fades in 200ms."
+      },
+      {
+        "name": "callout-draw",
+        "value": "run 110ms; rise from 90ms; shelf from 180ms; card 180ms from 250ms",
+        "purpose": "The elbow leader draws out, up and along, then the card fades up 3px."
+      },
+      {
+        "name": "print-full",
+        "value": "12s",
+        "purpose": "A full print from the empty plate (Reprint); layers slow toward the top (ease exponent 1.6)."
+      },
+      {
+        "name": "print-from-poster",
+        "value": "about 3.9s",
+        "purpose": "The first-load print, from the poster frame at 0.833 height to the top."
+      },
+      {
+        "name": "print-flash",
+        "value": "1.2s",
+        "purpose": "Completion flash: the wireframe starts Signal Orange and cools to white, settling at 65% opacity."
+      },
+      {
+        "name": "turntable",
+        "value": "0.06 rad/s",
+        "purpose": "Idle rotation from the first frame (about 105s a turn); stops on drag, open part, pause or reduced motion."
+      },
+      {
+        "name": "dot-pulse",
+        "value": "scale 1 ± 0.18 at sin(3t); 1.45 when active",
+        "purpose": "The orange part dots on the print; off under reduced motion."
+      },
+      {
+        "name": "tick-draw",
+        "value": "600ms after 300ms",
+        "purpose": "The Order confirmed tick, drawn once."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "1ms",
+        "purpose": "All CSS transitions and animations clamp to 1ms; the print opens finished and still."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Silver Button",
+      "kind": "button",
+      "refersTo": "button-silver",
+      "description": "The main action on the charcoal lid: silver fill, charcoal type, led by the box icon.",
+      "html": "<div class=\"ds-on-lid\"><button type=\"button\" class=\"ds-btn-silver\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M3 8h14v9H3z\"/><path d=\"M3 8l2.5-4h9L17 8\"/><path d=\"M8 11h4\"/></svg>Add to cart</button></div>",
+      "css": ".ds-on-lid { background: var(--color-lid, #222531); padding: 24px; } .ds-btn-silver { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 2.75rem; padding: 0.7rem 1.25rem; font-family: var(--font-body, Archivo, Arial, sans-serif); font-stretch: 112%; font-weight: 650; font-size: 0.9375rem; letter-spacing: 0.02em; border: 0; border-radius: 2px; cursor: pointer; transition: background-color 160ms cubic-bezier(0.22, 1, 0.36, 1), color 160ms cubic-bezier(0.22, 1, 0.36, 1), transform 160ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-silver:active { transform: translateY(1px); } .ds-btn-silver:disabled { opacity: 0.55; cursor: not-allowed; } .ds-btn-silver { background: var(--color-silver, #b7bcc6); color: var(--color-lid, #222531); } .ds-btn-silver:hover { background: var(--color-silver-hi, #e1e4e9); } .ds-btn-silver:focus-visible { outline: 2px solid var(--color-signal, #ff6b00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "The main action on kraft and the packing slip: charcoal fill, silver type, charcoal focus ring.",
+      "html": "<div class=\"ds-on-kraft\"><button type=\"button\" class=\"ds-btn-ink\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M3 8h14v9H3z\"/><path d=\"M3 8l2.5-4h9L17 8\"/><path d=\"M8 11h4\"/></svg>Add to cart</button></div>",
+      "css": ".ds-on-kraft { background: var(--color-kraft, #b99860); padding: 24px; } .ds-btn-ink { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 2.75rem; padding: 0.7rem 1.25rem; font-family: var(--font-body, Archivo, Arial, sans-serif); font-stretch: 112%; font-weight: 650; font-size: 0.9375rem; letter-spacing: 0.02em; border: 0; border-radius: 2px; cursor: pointer; transition: background-color 160ms cubic-bezier(0.22, 1, 0.36, 1), color 160ms cubic-bezier(0.22, 1, 0.36, 1), transform 160ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-ink:active { transform: translateY(1px); } .ds-btn-ink:disabled { opacity: 0.55; cursor: not-allowed; } .ds-btn-ink { background: var(--color-lid, #222531); color: var(--color-silver-hi, #e1e4e9); } .ds-btn-ink:hover { background: var(--color-lid-deep, #191b24); } .ds-btn-ink:focus-visible { outline: 2px solid var(--color-lid, #222531); outline-offset: 3px; }"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "A second action: a 1px outline in the current text colour, no fill.",
+      "html": "<div class=\"ds-on-lid-line\"><button type=\"button\" class=\"ds-btn-line\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M3 8h14v9H3z\"/><path d=\"M3 8l2.5-4h9L17 8\"/><path d=\"M8 11h4\"/></svg>Add to cart</button></div>",
+      "css": ".ds-on-lid-line { background: var(--color-lid, #222531); padding: 24px; } .ds-btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 2.75rem; padding: 0.7rem 1.25rem; font-family: var(--font-body, Archivo, Arial, sans-serif); font-stretch: 112%; font-weight: 650; font-size: 0.9375rem; letter-spacing: 0.02em; border: 0; border-radius: 2px; cursor: pointer; transition: background-color 160ms cubic-bezier(0.22, 1, 0.36, 1), color 160ms cubic-bezier(0.22, 1, 0.36, 1), transform 160ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-line:active { transform: translateY(1px); } .ds-btn-line:disabled { opacity: 0.55; cursor: not-allowed; } .ds-btn-line { background: transparent; color: var(--color-silver-hi, #e1e4e9); border: 1px solid currentColor; } .ds-btn-line:hover { background: rgb(255 255 255 / 0.06); } .ds-btn-line:focus-visible { outline: 2px solid var(--color-signal, #ff6b00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "The lid's top edge: wordmark in box silver ink, section links with a growing underline, the box as the cart.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main\"><a href=\"#\" class=\"ds-nav-mark\">Wooster <span>Core</span></a><div class=\"ds-nav-links\"><a href=\"#\" class=\"ds-nav-link\" aria-current=\"location\">The print</a><a href=\"#\" class=\"ds-nav-link\">In the box</a><a href=\"#\" class=\"ds-nav-link\">Specs</a><button type=\"button\" class=\"ds-nav-cart\" aria-label=\"Cart, 0 items\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M3 8h14v9H3z\"/><path d=\"M3 8l2.5-4h9L17 8\"/><path d=\"M8 11h4\"/></svg><span aria-hidden=\"true\">0</span></button></div></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; height: 4rem; padding: 0 1.5rem; background: rgb(34 37 49 / 0.95); border-bottom: 1px solid var(--color-lid-line, #363b4b); backdrop-filter: blur(6px); } .ds-nav-mark { font-family: var(--font-display, Lexend, Arial, sans-serif); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--color-ink, #8b95a4); text-decoration: none; } .ds-nav-mark span { font-size: 0.72em; } .ds-nav-links { display: flex; align-items: center; gap: 0.25rem; } .ds-nav-link { position: relative; padding: 0.5rem 0.75rem; font-family: var(--font-body, Archivo, Arial, sans-serif); font-size: 0.875rem; color: var(--color-silver-lo, #8e95a1); text-decoration: none; transition: color 150ms; } .ds-nav-link:hover, .ds-nav-link[aria-current] { color: var(--color-silver-hi, #e1e4e9); } .ds-nav-link::after { content: \"\"; position: absolute; left: 0.75rem; right: 0.75rem; bottom: -2px; height: 1px; background: var(--color-silver-hi, #e1e4e9); transform: scaleX(0); transform-origin: left; transition: transform 300ms; } .ds-nav-link[aria-current]::after { transform: scaleX(1); } .ds-nav-link:focus-visible, .ds-nav-cart:focus-visible, .ds-nav-mark:focus-visible { outline: 2px solid var(--color-signal, #ff6b00); outline-offset: 3px; } .ds-nav-cart { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.75rem; margin-left: 0.25rem; padding: 0 0.625rem; background: none; border: 0; color: var(--color-silver, #b7bcc6); cursor: pointer; transition: color 150ms; } .ds-nav-cart:hover { color: var(--color-silver-hi, #e1e4e9); } .ds-nav-cart span { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, monospace); font-size: 0.75rem; }"
+    },
+    {
+      "name": "Colour Swatches",
+      "kind": "chip",
+      "refersTo": "colour-swatch",
+      "description": "The colourway choice on kraft: 20px paint chips, a charcoal ring when chosen.",
+      "html": "<fieldset class=\"ds-swatches\"><legend>Colour for Woo Mount Add-on</legend><label><input type=\"radio\" name=\"ds-colour\" checked><span class=\"ds-swatch ds-swatch-stealth\" aria-hidden=\"true\"></span>Stealth Black</label><label><input type=\"radio\" name=\"ds-colour\"><span class=\"ds-swatch ds-swatch-signal\" aria-hidden=\"true\"></span>Signal Orange</label></fieldset>",
+      "css": ".ds-swatches { position: relative; display: flex; align-items: center; gap: 0.75rem; margin: 0; padding: 16px 24px; border: 0; background: var(--color-kraft, #b99860); color: var(--color-lid, #222531); font-family: var(--font-body, Archivo, Arial, sans-serif); font-size: 0.875rem; } .ds-swatches legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } .ds-swatches label { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.5rem; cursor: pointer; } .ds-swatches input { position: absolute; width: 1px; height: 1px; opacity: 0; } .ds-swatch { display: block; width: 20px; height: 20px; border-radius: 9999px; border: 1px solid rgb(34 37 49 / 0.4); } .ds-swatch-stealth { background: var(--color-stealth, #16171b); } .ds-swatch-signal { background: var(--color-signal, #ff6b00); } .ds-swatches input:checked + .ds-swatch { box-shadow: 0 0 0 2px var(--color-kraft, #b99860), 0 0 0 4px var(--color-lid, #222531); } .ds-swatches input:focus-visible + .ds-swatch { outline: 2px solid var(--color-lid, #222531); outline-offset: 4px; }"
+    },
+    {
+      "name": "Quantity Stepper",
+      "kind": "input",
+      "refersTo": "qty-stepper",
+      "description": "The quantity control on a packing slip: square steps, a mono count, Remove as underlined text.",
+      "html": "<div class=\"ds-slip\"><div class=\"ds-stepper\"><button type=\"button\" class=\"ds-stepper-btn\" aria-label=\"One fewer Wooster Core\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M5 10h10\"/></svg></button><span class=\"ds-stepper-qty\" aria-live=\"polite\">1</span><button type=\"button\" class=\"ds-stepper-btn\" aria-label=\"One more Wooster Core\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M5 10h10M10 5v10\"/></svg></button><button type=\"button\" class=\"ds-remove\">Remove</button></div></div>",
+      "css": ".ds-slip { background: var(--color-slip, #eeefeb); color: var(--color-lid, #222531); padding: 16px 24px; font-family: var(--font-body, Archivo, Arial, sans-serif); } .ds-stepper { display: flex; align-items: center; gap: 0.25rem; } .ds-stepper-btn { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; padding: 0; background: none; border: 1px solid rgb(34 37 49 / 0.3); color: inherit; cursor: pointer; } .ds-stepper-btn:hover { border-color: var(--color-lid, #222531); } .ds-stepper-qty { width: 2rem; text-align: center; font-family: var(--font-mono, \"Martian Mono\", ui-monospace, monospace); font-size: 0.8125rem; } .ds-remove { margin-left: 0.5rem; min-height: 2.25rem; padding: 0 0.25rem; background: none; border: 0; color: rgb(34 37 49 / 0.75); font: inherit; font-size: 0.8125rem; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; } .ds-remove:hover { color: var(--color-lid, #222531); } .ds-stepper-btn:focus-visible, .ds-remove:focus-visible { outline: 2px solid var(--color-lid, #222531); outline-offset: 3px; }"
+    },
+    {
+      "name": "Spec Panel",
+      "kind": "custom",
+      "description": "The box's side panel on charcoal: label-voice terms, highlighted values, 1px score lines.",
+      "html": "<div class=\"ds-spec-panel\"><dl class=\"ds-spec\"><div><dt>Material</dt><dd>PETG/ASA polymer</dd></div><div><dt>Layer height</dt><dd>0.2 mm</dd></div><div><dt>Hardware</dt><dd>316 stainless steel</dd></div><div><dt>Bolts</dt><dd>M5×25, 4 per kit</dd></div></dl></div>",
+      "css": ".ds-spec-panel { background: var(--color-lid, #222531); padding: 24px; } .ds-spec { margin: 0; border-top: 1px solid rgb(142 149 161 / 0.45); } .ds-spec > div { display: grid; grid-template-columns: minmax(8.5rem, 40%) 1fr; gap: 1rem; padding: 0.625rem 0; border-bottom: 1px solid var(--color-lid-line, #363b4b); } .ds-spec dt { padding-top: 0.125rem; font-family: var(--font-display, Lexend, Arial, sans-serif); font-weight: 500; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-silver-lo, #8e95a1); } .ds-spec dd { margin: 0; font-family: var(--font-body, Archivo, Arial, sans-serif); font-size: 0.9375rem; color: var(--color-silver-hi, #e1e4e9); }"
+    },
+    {
+      "name": "Packing List Entry",
+      "kind": "custom",
+      "description": "A product on the kraft packing list: name and mono SKU, price, ruled part lines, the Ink button.",
+      "html": "<div class=\"ds-pack-panel\"><ol class=\"ds-pack\"><li><div class=\"ds-pack-head\"><h3>Wooster Core <span>WC-100</span></h3><p>$149</p></div><ul class=\"ds-pack-parts\"><li><button type=\"button\" aria-pressed=\"false\"><span class=\"ds-pack-q\">1×</span><span class=\"ds-pack-n\">Core handle</span><span class=\"ds-pack-s\">PETG/ASA</span></button></li><li><button type=\"button\" aria-pressed=\"true\"><span class=\"ds-pack-q\">4×</span><span class=\"ds-pack-n\">Bolts</span><span class=\"ds-pack-s\">M5×25, 316 stainless</span></button></li><li><button type=\"button\" aria-pressed=\"false\"><span class=\"ds-pack-q\">4×</span><span class=\"ds-pack-n\">Washers</span><span class=\"ds-pack-s\">M5, 316 stainless</span></button></li></ul><div class=\"ds-pack-foot\"><button type=\"button\" class=\"ds-pack-btn\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M3 8h14v9H3z\"/><path d=\"M3 8l2.5-4h9L17 8\"/><path d=\"M8 11h4\"/></svg>Add to cart</button></div></li></ol></div>",
+      "css": ".ds-pack-panel { background: var(--color-kraft, #b99860); color: var(--color-lid, #222531); padding: 24px; font-family: var(--font-body, Archivo, Arial, sans-serif); } .ds-pack { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--color-lid, #222531); } .ds-pack > li { padding: 1.25rem 0; border-bottom: 1px solid rgb(34 37 49 / 0.3); } .ds-pack-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; } .ds-pack-head h3 { margin: 0; font-family: var(--font-display, Lexend, Arial, sans-serif); font-weight: 600; font-size: 1.05rem; line-height: 1.25; text-transform: uppercase; } .ds-pack-head h3 span { margin-left: 0.5rem; font-family: var(--font-mono, \"Martian Mono\", ui-monospace, monospace); font-weight: 400; font-size: 0.6875rem; vertical-align: middle; } .ds-pack-head p { margin: 0; font-family: var(--font-display, Lexend, Arial, sans-serif); font-weight: 600; font-size: 1.35rem; line-height: 1; } .ds-pack-parts { list-style: none; margin: 0.75rem 0 0; padding: 0; } .ds-pack-parts button { display: grid; grid-template-columns: 2.25rem 1fr auto; align-items: baseline; column-gap: 0.5rem; width: 100%; padding: 0.375rem 0; background: none; border: 0; color: inherit; font: inherit; font-size: 0.9375rem; text-align: left; cursor: pointer; } .ds-pack-q { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, monospace); font-size: 0.75rem; } .ds-pack-s { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, monospace); font-size: 0.6875rem; text-align: right; } .ds-pack-n { text-underline-offset: 4px; } .ds-pack-parts button:hover .ds-pack-n { text-decoration: underline; } .ds-pack-parts button[aria-pressed=\"true\"] .ds-pack-n { text-decoration: underline; text-decoration-thickness: 2px; } .ds-pack-parts button:focus-visible { outline: 2px solid var(--color-lid, #222531); outline-offset: 3px; } .ds-pack-foot { display: flex; justify-content: flex-end; margin-top: 1rem; } .ds-pack-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 2.75rem; padding: 0.7rem 1.25rem; font-family: var(--font-body, Archivo, Arial, sans-serif); font-stretch: 112%; font-weight: 650; font-size: 0.9375rem; letter-spacing: 0.02em; border: 0; border-radius: 2px; cursor: pointer; transition: background-color 160ms cubic-bezier(0.22, 1, 0.36, 1), color 160ms cubic-bezier(0.22, 1, 0.36, 1), transform 160ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-pack-btn:active { transform: translateY(1px); } .ds-pack-btn:disabled { opacity: 0.55; cursor: not-allowed; } .ds-pack-btn { background: var(--color-lid, #222531); color: var(--color-silver-hi, #e1e4e9); } .ds-pack-btn:hover { background: var(--color-lid-deep, #191b24); } .ds-pack-btn:focus-visible { outline: 2px solid var(--color-lid, #222531); outline-offset: 3px; }"
+    },
+    {
+      "name": "Part Callout",
+      "kind": "custom",
+      "refersTo": "callout-card",
+      "description": "An orange elbow leader from a part's dot to a Lid Shadow card with name, orange part code and note.",
+      "html": "<div class=\"ds-callout-stage\"><div class=\"ds-callout\"><span class=\"ds-callout-dot\"></span><span class=\"ds-callout-run\"></span><span class=\"ds-callout-rise\"></span><span class=\"ds-callout-shelf\"></span><div class=\"ds-callout-card\"><p class=\"ds-callout-name\">Bolts</p><p class=\"ds-callout-code\">WC-410 · M5×25, 316 stainless · ×4</p><p class=\"ds-callout-text\">Torque-rated fasteners in marine-grade 316 stainless steel.</p></div></div></div>",
+      "css": ".ds-callout-stage { position: relative; height: 200px; background: var(--color-lid, #222531); overflow: hidden; } .ds-callout { position: absolute; left: 40px; top: 120px; width: 0; height: 0; } .ds-callout-dot { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 9999px; background: var(--color-signal, #ff6b00); } .ds-callout-run, .ds-callout-rise, .ds-callout-shelf { position: absolute; background: var(--color-signal, #ff6b00); animation: ds-callout-draw 110ms cubic-bezier(0.22, 1, 0.36, 1) both; } .ds-callout-run { left: 8px; top: -0.75px; width: 44px; height: 1.5px; transform-origin: left; } .ds-callout-rise { left: 52px; top: -34px; width: 1.5px; height: 34px; transform-origin: bottom; animation-name: ds-callout-rise; animation-delay: 90ms; } .ds-callout-shelf { left: 52px; top: -34.75px; width: 26px; height: 1.5px; transform-origin: left; animation-delay: 180ms; } .ds-callout-card { position: absolute; left: 78px; top: -58px; width: max-content; max-width: 15rem; padding: 0.6rem 0.85rem 0.7rem; background: rgb(25 27 36 / 0.95); border: 1px solid rgb(183 188 198 / 0.22); border-top: 2px solid var(--color-signal, #ff6b00); animation: ds-callout-label 180ms cubic-bezier(0.22, 1, 0.36, 1) 250ms both; } .ds-callout-name { margin: 0; font-family: var(--font-display, Lexend, Arial, sans-serif); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-silver-hi, #e1e4e9); } .ds-callout-code { margin: 0.2rem 0 0; font-family: var(--font-mono, \"Martian Mono\", ui-monospace, monospace); font-size: 0.65rem; color: var(--color-signal, #ff6b00); } .ds-callout-text { margin: 0.35rem 0 0; font-family: var(--font-body, Archivo, Arial, sans-serif); font-size: 0.78rem; line-height: 1.45; color: var(--color-silver, #b7bcc6); } @keyframes ds-callout-draw { from { transform: scaleX(0); } } @keyframes ds-callout-rise { from { transform: scaleY(0); } } @keyframes ds-callout-label { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } } @media (prefers-reduced-motion: reduce) { .ds-callout-run, .ds-callout-rise, .ds-callout-shelf, .ds-callout-card { animation-duration: 1ms; animation-delay: 0ms; } }"
+    },
+    {
+      "name": "Parts Legend",
+      "kind": "custom",
+      "refersTo": "part-dot",
+      "description": "The print's contents list on the lid: half-strength orange dots that brighten on hover and fill when chosen.",
+      "html": "<div class=\"ds-legend-panel\"><p class=\"ds-legend-label\">In the handle kit</p><ul class=\"ds-legend\"><li><button type=\"button\" aria-pressed=\"false\"><span class=\"ds-legend-dot\" aria-hidden=\"true\"></span><span class=\"ds-legend-q\">1×</span>Core handle</button></li><li><button type=\"button\" aria-pressed=\"true\"><span class=\"ds-legend-dot\" aria-hidden=\"true\"></span><span class=\"ds-legend-q\">4×</span>Bolts</button></li><li><button type=\"button\" aria-pressed=\"false\"><span class=\"ds-legend-dot\" aria-hidden=\"true\"></span><span class=\"ds-legend-q\">4×</span>Washers</button></li></ul></div>",
+      "css": ".ds-legend-panel { background: var(--color-lid, #222531); padding: 20px 24px; } .ds-legend-label { margin: 0; font-family: var(--font-display, Lexend, Arial, sans-serif); font-weight: 500; font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-silver-lo, #8e95a1); } .ds-legend { list-style: none; margin: 0.25rem 0 0; padding: 0; } .ds-legend button { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2rem; padding: 0; background: none; border: 0; font-family: var(--font-body, Archivo, Arial, sans-serif); font-size: 0.8125rem; color: var(--color-silver, #b7bcc6); cursor: pointer; transition: color 150ms; } .ds-legend button:hover, .ds-legend button[aria-pressed=\"true\"] { color: var(--color-silver-hi, #e1e4e9); } .ds-legend-dot { display: block; width: 8px; height: 8px; border-radius: 9999px; background: rgb(255 107 0 / 0.5); transition: background-color 150ms; } .ds-legend button:hover .ds-legend-dot { background: rgb(255 107 0 / 0.85); } .ds-legend button[aria-pressed=\"true\"] .ds-legend-dot { background: var(--color-signal, #ff6b00); } .ds-legend-q { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, monospace); font-size: 0.6875rem; } .ds-legend button:focus-visible { outline: 2px solid var(--color-signal, #ff6b00); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Box and its Foam",
+    "overview": "The site is the Wooster Core box, opened. The first screen is the lid, laid out the way the real carton is printed: WOOSTER CORE in silver across the top, a rule, PERFORMANCE BIG AIR, the line drawing in the middle, the price bottom-left and ENGINEERED BY ARTY DESIGN bottom-right. On this lid the line drawing is the live WebGL print. It builds the kit in white wireframe with a Signal Orange hot layer. Below the lid is the kraft tray, where each part is found in its cut-out and the packing list sells it. The cart is the packing slip that goes in the box.\n\nEvery colour is sampled from the product photos. Surfaces are flat fields of the box's materials, and depth only appears where paper lies on board. Type behaves like carton print: a big name, one heading size and a lot of small, exact print for codes, counts and specs. The lid gives most of its height to the print, and the lists below it are dense like a spec panel. The live print is the one authored moment. Everything else on the page is a short change of state.\n\nThe world rejects the dark action-sports store with a neon accent. Orange appears only where the product is orange or hot, and every button is the box's own silver or charcoal. The grey pick foam of the name lives in the photographs. Its CSS material is held out with the unreleased rider section, so no shipped surface is drawn in foam.",
+    "keyCharacteristics": [
+      "A blue-charcoal lid is the base field. Kraft and the packing slip are the only light surfaces.",
+      "Display lettering is the box's silver ink on charcoal, and charcoal on kraft and the slip.",
+      "Signal Orange marks orange parts, the print's heat and the part markers. It never fills a button.",
+      "Content sits on rules like a packing list or a spec panel. There are no cards.",
+      "Corners are square-cut. Buttons take 2px, and circles are kept for part dots and colour swatches.",
+      "One authored motion, the live print, which opens finished and still under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Orange Part Rule",
+        "body": "Signal Orange appears where the product is orange or hot: the mount colourway, the print's hot layer and flash, and the dots, markers and leaders that point at parts. Its only other use is marking interaction on charcoal (focus ring, text selection, caret). It never fills a button or a surface, it never colours a heading or a sentence, and the only orange type is a part code set in mono on charcoal.",
+        "section": "colors"
+      },
+      {
+        "name": "The Charcoal-on-Kraft Rule",
+        "body": "Every word on kraft is full-strength Lid Charcoal. Charcoal tints are for dividers only. Kraft and the slip switch the focus ring to charcoal, because orange on kraft measures 1.05:1.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sampled Colour Rule",
+        "body": "Every colour token comes from the product photos: the lid, its print, the tray, the handle and the mount. A new colour has to be sampled from the same evidence.",
+        "section": "colors"
+      },
+      {
+        "name": "The Box-Print Ramp Rule",
+        "body": "Large type is kept for the lid name and the section or page headings. Below them, prices, totals, wordmarks and the maker credit run in Lexend semibold up to 2rem. Everything else is small print, mostly 10–17px.",
+        "section": "typography"
+      },
+      {
+        "name": "The Codes-in-Mono Rule",
+        "body": "Anything a printer or a parts list would print goes in Martian Mono: SKU, part code, count, layer height, temperature, percentage. Names and sentences never do.",
+        "section": "typography"
+      },
+      {
+        "name": "The Carton Order Rule",
+        "body": "The lid always reads in the carton's order: name, rule, PERFORMANCE BIG AIR, print, price bottom-left, maker bottom-right. On wide screens no text block crosses the middle of the print; only callouts, which belong to the print, sit on it.",
+        "section": "layout"
+      },
+      {
+        "name": "The Paper-on-Board Rule",
+        "body": "A shadow means one material is lying on another, and it takes the tint of the surface below. Nothing lifts on hover, no panel floats, and no button casts a shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Flat Board Rule",
+        "body": "Material fields are flat colour. Don't add flutes, grain or noise; the photographs carry the texture.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square-Cut Rule",
+        "body": "Nothing is rounded except buttons (2px) and the round marks. Photos and sheets keep hard corners.",
+        "section": "shapes"
+      },
+      {
+        "name": "The One Moment Rule",
+        "body": "The print is the only authored animation. Everything else is a state change: 160ms for buttons, about 300ms for fades, the nav underline and the drawer, and under half a second for a callout to draw. Nothing reveals on scroll, and nothing loops except the print and its dots.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do set names, headings and prices in Lexend semibold uppercase: Box Silver Ink on charcoal, Lid Charcoal on kraft and the slip.",
+      "Do use the Silver button on charcoal and the Ink button on kraft and the slip. A second action is a Line button or an underlined link.",
+      "Do keep every word on kraft at full-strength Lid Charcoal, and switch the focus ring to charcoal on kraft and the slip.",
+      "Do print codes, counts and readings in Martian Mono with tabular numerals.",
+      "Do lay lists on rules: 2px charcoal to open a list or mark a slip's header and total, 1px lines between rows.",
+      "Do tint a shadow to the surface it falls on, and only where one material lies on another.",
+      "Do open the print on its poster frame, and give reduced motion a finished, still print.",
+      "Do lead every Add to cart with the box icon, and show the box icon on charcoal where a product photo is missing."
+    ],
+    "donts": [
+      "Don't fill a button or a surface with Signal Orange, and don't set a heading or a sentence in it.",
+      "Don't use orange on kraft or the slip; it measures 1.05:1 on kraft.",
+      "Don't build cards or tiles with their own fill, border or shadow. Lists sit on rules.",
+      "Don't round anything except buttons (2px) and the round part marks.",
+      "Don't texture the material fields. The flute pattern and the kraft noise were removed because they read as imitation board.",
+      "Don't add a second authored animation. Nothing reveals on scroll and nothing lifts on hover.",
+      "Don't set pure white type outside the C4 credit band.",
+      "Don't build on the declared but unused tokens (kraft-deep, kraft-hi, foam, foam-hi, signal-deep, steel). signal-deep in particular would invite an orange hover state."
+    ]
+  }
+}
